@@ -27,7 +27,6 @@ body {
   border:0;
   outline:0;
   font-family: $font-inter, sans-serif;
-  color: $color-branco;
 }
 button {
   cursor: pointer;
@@ -35,7 +34,10 @@ button {
 
 a {
   text-decoration: none;
-  color: inherit;
+  &:hover {
+    text-decoration: none;
+    filter:brightness(1) !important;
+  }
 }
 
 a,button {
@@ -47,4 +49,24 @@ a,button {
 
 h1,h2,h3,h4,h5,h6 {
   text-transform: uppercase;
+}
+
+ul {
+  list-style: none;
+}
+
+a[href]:not([tabindex='-1']),
+area[href]:not([tabindex='-1']),
+input:not([disabled]):not([tabindex='-1']),
+select:not([disabled]):not([tabindex='-1']),
+textarea:not([disabled]):not([tabindex='-1']),
+button:not([disabled]):not([tabindex='-1']),
+iframe:not([tabindex='-1']),
+[tabindex]:not([tabindex='-1']),
+[contentEditable=true]:not([tabindex='-1'])
+{
+  &:focus {
+    outline: 2px solid $color-preto;
+    border-radius: 2px;
+  }
 }

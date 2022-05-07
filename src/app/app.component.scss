@@ -1,0 +1,19 @@
+.app {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "header content";
+  grid-template-columns: 200px 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  &__header {
+    grid-area: header;
+  }
+
+  &__content {
+    grid-area: content;
+    height: 100vh;
+    overflow-y: scroll;
+    padding: 24px;
+  }
+}
