@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faBagShopping, faBars, faCalendarDays, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { HeaderItem } from './header.models';
 
@@ -16,15 +17,17 @@ export class HeaderComponent implements OnInit {
 
   isCollapsed = true;
 
+
   navHeader: HeaderItem[] = [
     {name: 'Agendamento', icon: faCalendarDays, link: '#'},
     {name: 'Serviços', icon: faBagShopping, link: '#'},
     {name: 'Funcionários', icon: faUsers, link: '#'},
   ]
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    
   }
 
 }

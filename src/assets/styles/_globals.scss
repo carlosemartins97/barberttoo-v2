@@ -65,8 +65,8 @@ iframe:not([tabindex='-1']),
 [tabindex]:not([tabindex='-1']),
 [contentEditable=true]:not([tabindex='-1'])
 {
-  &:focus {
-    outline: 2px solid $color-preto;
+  &:focus-visible {
+    outline: 2px solid $color-amarelo;
     border-radius: 2px;
   }
 }

@@ -1,1 +1,29 @@
-<p>home works!</p>
+<div class="home">
+  <div class="home__logo">
+    <img src="assets/images/logo/logo.png" alt="Logo BARBERTTOO">
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <div class="label-float">
+      <input type="text" placeholder=" " name="email" id="email" formControlName="email"/>
+      <label>E-mail:</label>
+
+      <div class="error-msg">
+        <span *ngIf="getForm().email.touched && getForm().email.errors">Insira um e-mail válido.</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <input type="password" placeholder=" " name="password" id="password" formControlName="password"/>
+      <label>Senha:</label>
+
+      <div class="error-msg">
+        <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
+      </div>
+    </div>
+    
+    <div class="submit-container">
+      <button>entrar</button>
+    </div>
+  </form>
+</div>

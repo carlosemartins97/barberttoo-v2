@@ -1,9 +1,9 @@
-<div class="app">
-  <div class="app__header">
+<div [ngClass]="{'app': !isHome}">
+  <div class="app__header" *ngIf="!isHome">
     <app-header></app-header>
   </div>
 
-  <div class="app__content">
+  <div [ngClass]="{'app__content': !isHome}">
     <router-outlet></router-outlet>
   </div>
 </div>
