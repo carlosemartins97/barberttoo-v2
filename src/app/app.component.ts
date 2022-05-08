@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,19 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   isHome: boolean;
 
-  constructor(private router: Router) {}
+  urlWithoutMenu = [
+    '/',
+    '/register',
+  ]
+
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.dontShowHeaderOnHome();
+    this.dontShowHeader();
+    console.log(window.location.pathname);
   }
 
-  dontShowHeaderOnHome() {
-    this.router.url === '/' ? this.isHome = true : this.isHome = false;
+  dontShowHeader() {
+    this.urlWithoutMenu.includes(window.location.pathname) ? this.isHome = true : this.isHome = false;
   }
 }
