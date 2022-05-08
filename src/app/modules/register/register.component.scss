@@ -1,0 +1,151 @@
+@import '../../../assets/styles/dependencies';
+
+.register {
+  display: flex;
+  min-height: 100vh;
+  padding: 16px;
+  max-width: $lg;
+  margin: 0 auto;
+
+  .form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__header {
+      max-width: 480px;
+      margin-bottom: 16px;
+      a {
+        margin-bottom: 8px;
+        background: transparent;
+        border: none;
+        color: $color-amarelo;
+        text-transform: uppercase;
+        line-height: 24px;
+
+        ::ng-deep fa-icon {
+          color: $color-branco;
+          margin-right: 4px;
+        }
+      }
+
+      h1 {
+        font-weight: 700;
+        font-size: 24px;
+        margin-top: 16px;
+      }
+
+      p {
+        color: $color-amarelo;
+        line-height: 21px;
+        font-weight: 600;
+        font-size: 14px;
+      }
+    }
+
+    form {
+      width: 100%;
+      max-width: 480px;
+      .label-float{
+        position: relative;
+        padding-top: 13px;
+        height: 56px;
+        background: $input-background;
+        border-radius: 4px;
+        margin-bottom: 32px;
+        box-shadow: 1px 4px 10px #0006;
+  
+        .error-msg {
+          display: block;
+          padding-left: 16px;
+          font-size: 12px;
+          color: $color-red;
+          font-weight: 200;
+          margin-top: 3px;
+        }
+      }
+  
+      .label-float input{
+        padding: 0 16px;
+        color: $color-branco;
+        border: 0;
+        width: 100%;
+        outline: none;
+        min-width: 180px;
+        font-size: 16px;
+        transition: all .3s ease-out;
+        -webkit-transition: all .3s ease-out;
+        -moz-transition: all .3s ease-out;
+        -webkit-appearance:none;
+        border-radius:0;
+        height: 100%;
+        background: transparent;
+      }
+  
+      .label-float input:focus{
+        border-bottom: 2px solid $color-amarelo;
+      }
+  
+      .label-float input::placeholder{
+        color:transparent;
+      }
+  
+      .label-float label{
+        padding-left: 16px;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 18px;
+        transition: all .3s ease-out;
+        -webkit-transition: all .3s ease-out;
+        -moz-transition: all .3s ease-out;
+        color: $color-branco;
+      }
+  
+      .label-float input:focus + label,
+      .label-float input:not(:placeholder-shown) + label{
+        font-size: 12px;
+        margin-top: 6px;
+        color: $color-amarelo;
+      }
+  
+      .submit {
+        width: 100%;
+  
+        button {
+          background: $color-amarelo;
+          color: $color-branco;
+          font-weight: 700;
+          text-align: center;
+          width: 100%;
+          height: 48px;
+          border-radius: 4px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    width: 100%;
+    display: none;
+
+    @include mq(md) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    img {
+      max-width: 250px;
+      object-fit: contain;
+
+      @include mq(lg) {
+        max-width: 420px;
+      }
+    }
+  }
+}

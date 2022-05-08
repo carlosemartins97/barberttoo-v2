@@ -5,6 +5,7 @@ import { ModulesRoutingModule } from './modules-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { LoaderComponent } from '../shared/loader/loader.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -18,6 +19,7 @@ import { LoaderComponent } from '../shared/loader/loader.component';
     CommonModule,
     ModulesRoutingModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ]
 })
 export class ModulesModule { }

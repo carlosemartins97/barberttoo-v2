@@ -5,6 +5,8 @@
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  max-width: $lg;
+  margin: 0 auto;
 
   @include mq(md) {
     flex-direction: row;
@@ -51,6 +53,7 @@
       background: $input-background;
       border-radius: 4px;
       margin-bottom: 32px;
+      box-shadow: 1px 4px 10px #0006;
 
       .error-msg {
         display: block;
@@ -119,6 +122,17 @@
         height: 48px;
         border-radius: 4px;
         text-transform: uppercase;
+      }
+    }
+
+    .no-account {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 8px;
+      
+      a {
+        color: $color-amarelo;
+        font-weight: bold;
       }
     }
   }

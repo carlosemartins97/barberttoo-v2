@@ -1,1 +1,79 @@
-<p>register works!</p>
+<div class="register">
+  <div class="form-container">
+    <div class="form-container__header">
+      <a [routerLink]="['/']" class="form-container__back">
+        <fa-icon [icon]="faArrowLeft"></fa-icon>
+        voltar
+      </a>
+
+      <h1>registre-se agora!</h1>
+
+      <p>Falta pouco para desfrutar de todas as funcionalidades que temos para oferecer.</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <div class="label-float">
+        <input type="text" placeholder=" " name="name" id="name" formControlName="name"/>
+        <label>Nome completo:</label>
+  
+        <!-- <div class="error-msg">
+          <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
+        </div> -->
+      </div>
+
+      <div class="label-float">
+        <input type="text" placeholder=" " name="cpf" id="cpf" formControlName="cpf"/>
+        <label>CPF:</label>
+  
+        <!-- <div class="error-msg">
+          <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
+        </div> -->
+      </div>
+
+      <div class="label-float">
+        <input type="text" placeholder=" " name="phone" id="phone" formControlName="phone"/>
+        <label>Celular:</label>
+  
+        <!-- <div class="error-msg">
+          <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
+        </div> -->
+      </div>
+
+      <div class="label-float">
+        <input type="text" placeholder=" " name="date" id="date" formControlName="date"/>
+        <label>Data de nascimento:</label>
+  
+        <!-- <div class="error-msg">
+          <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
+        </div> -->
+      </div>
+
+      <div class="label-float">
+        <input type="text" placeholder=" " name="email" id="email" formControlName="email"/>
+        <label>E-mail:</label>
+  
+        <!-- <div class="error-msg">
+          <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
+        </div> -->
+      </div>
+
+      <div class="label-float">
+        <input type="text" placeholder=" " name="password" id="password" formControlName="password"/>
+        <label>Senha:</label>
+  
+        <!-- <div class="error-msg">
+          <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
+        </div> -->
+      </div>
+
+      <div class="submit">
+        <button>cadastrar</button>
+      </div>
+
+    </form>
+  </div>
+  <div class="register__logo">
+    <img src="assets/images/logo/logo.png" alt="Logo do BARBERTTOO">
+  </div>
+</div>
