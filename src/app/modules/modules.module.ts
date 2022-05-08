@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ModulesRoutingModule } from './modules-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { LoaderComponent } from '../shared/loader/loader.component';
 
 
 
@@ -11,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
   declarations: [
     HomeComponent,
     RegisterComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
