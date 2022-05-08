@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faBagShopping, faCalendarDays, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faBars, faCalendarDays, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { HeaderItem } from './header.models';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,15 @@ export class HeaderComponent implements OnInit {
   faCalendarDays = faCalendarDays;
   faBagShopping = faBagShopping;
   faUsers = faUsers;
+  faBars = faBars;
+
+  isCollapsed = true;
+
+  navHeader: HeaderItem[] = [
+    {name: 'Agendamento', icon: faCalendarDays, link: '#'},
+    {name: 'Serviços', icon: faBagShopping, link: '#'},
+    {name: 'Funcionários', icon: faUsers, link: '#'},
+  ]
 
   constructor() { }
 

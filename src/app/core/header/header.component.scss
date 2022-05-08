@@ -2,13 +2,20 @@
 
 .header {
   padding: 80px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: none;
   height: 100%;
   background: $color-cinza-claro;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
+  border-right: 2px solid $color-amarelo;
+  border-top: 2px solid $color-amarelo;
+  border-bottom: 2px solid $color-amarelo;
+
+  @include mq(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   &__logo { 
     margin-bottom: 32px;
@@ -26,6 +33,20 @@
       width: 48px;
       height: 48px;
       border-radius: 100%;
+    }
+  }
+
+  .username {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 16px;
+    margin: 24px 0 24px;
+    border-bottom: 1px solid $color-cinza;
+
+    span {
+      font-size: 14px;
+      color: $color-amarelo;
+      font-weight: bold;
     }
   }
 
@@ -69,6 +90,90 @@
       font-size: 12px;
       line-height: 20px;
       text-align: center;
+    }
+  }
+}
+
+.headerMobile {
+  background: $color-cinza-claro;
+  padding: 16px;
+  position: relative;
+  border-bottom: 2px solid $color-amarelo;
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  &__logo { 
+    height: 100%;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-cinza-claro;
+      background: $color-dark;
+      font-size: 32px;
+      line-height: 32px;
+      font-weight: 900;
+      width: 48px;
+      height: 48px;
+      border-radius: 100%;
+    }
+  }
+
+  .username {
+      color: $color-amarelo;
+      font-weight: bold;
+  }
+
+  &__btnMenu {
+    background: transparent;
+    border: none;
+
+    ::ng-deep fa-icon {
+      font-size: 24px;
+      color: $color-dark;
+    }
+  }
+
+  .nav {
+    padding-top: 24px;
+
+    ul {
+      width: 100%;
+      border-top: 1px solid $color-cinza;
+      padding-top: 24px;
+
+      li {
+        padding: 8px 0;
+        a {
+          line-height: 24px;
+          font-size: 16px;
+          color: $color-dark;
+          font-weight: bold;
+          width: 100%;
+          display: flex;
+
+          ::ng-deep fa-icon {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+
+    .user {
+      width: 100%;
+      button {
+        background: $color-amarelo;
+        padding: 4px;
+        border-radius: 4px;
+        max-width: 80px;
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        text-align: center;
+      }
     }
   }
 }
