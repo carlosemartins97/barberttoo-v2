@@ -48,7 +48,6 @@
       
     .label-float{
       position: relative;
-      padding-top: 13px;
       height: 56px;
       background: $input-background;
       border-radius: 4px;
@@ -66,7 +65,7 @@
     }
 
     .label-float input{
-      padding: 0 16px;
+      padding: 6px 16px 0;
       color: $color-branco;
       border: 0;
       width: 100%;

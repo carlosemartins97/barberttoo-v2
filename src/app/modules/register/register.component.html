@@ -17,54 +17,54 @@
         <input type="text" placeholder=" " name="name" id="name" formControlName="name"/>
         <label>Nome completo:</label>
   
-        <!-- <div class="error-msg">
-          <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
-        </div> -->
+        <div class="error-msg">
+          <span *ngIf="getForm().name.touched && getForm().name.errors">Insira um nome completo</span>
+        </div>
       </div>
 
       <div class="label-float">
-        <input type="text" placeholder=" " name="cpf" id="cpf" formControlName="cpf"/>
+        <input type="text" placeholder=" " name="cpf" id="cpf" formControlName="cpf" mask="000.000.000-00"/>
         <label>CPF:</label>
   
-        <!-- <div class="error-msg">
-          <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
-        </div> -->
+        <div class="error-msg">
+          <span *ngIf="getForm().cpf.touched && getForm().cpf.errors">Insira um CPF válido.</span>
+        </div>
       </div>
 
       <div class="label-float">
-        <input type="text" placeholder=" " name="phone" id="phone" formControlName="phone"/>
+        <input type="tel" placeholder=" " name="phone" id="phone" formControlName="phone" mask="(00) 0 0000-0000"/>
         <label>Celular:</label>
   
-        <!-- <div class="error-msg">
-          <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
-        </div> -->
+        <div class="error-msg">
+          <span *ngIf="getForm().phone.touched && getForm().phone.errors">Insira um celular válido.</span>
+        </div>
       </div>
 
       <div class="label-float">
-        <input type="text" placeholder=" " name="date" id="date" formControlName="date"/>
+        <input type="date" placeholder=" " name="date" id="date" formControlName="date" [max]="getTodayDate()"/>
         <label>Data de nascimento:</label>
   
-        <!-- <div class="error-msg">
-          <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
-        </div> -->
+        <div class="error-msg">
+          <span *ngIf="getForm().date.touched && getForm().date.errors">Insira uma data de nascimento.</span>
+        </div>
       </div>
 
       <div class="label-float">
         <input type="text" placeholder=" " name="email" id="email" formControlName="email"/>
         <label>E-mail:</label>
   
-        <!-- <div class="error-msg">
-          <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
-        </div> -->
+        <div class="error-msg">
+          <span *ngIf="getForm().email.touched && getForm().email.errors">Insira um e-mail válido.</span>
+        </div>
       </div>
 
       <div class="label-float">
-        <input type="text" placeholder=" " name="password" id="password" formControlName="password"/>
+        <input type="password" placeholder=" " name="password" id="password" formControlName="password"/>
         <label>Senha:</label>
   
-        <!-- <div class="error-msg">
+        <div class="error-msg">
           <span *ngIf="getForm().password.touched && getForm().password.errors">A senha deve conter no mínimo 8 caractéres.</span>
-        </div> -->
+        </div>
       </div>
 
       <div class="submit">

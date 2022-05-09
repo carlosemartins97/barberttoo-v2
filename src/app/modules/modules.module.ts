@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { LoaderComponent } from '../shared/loader/loader.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
@@ -20,6 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ModulesRoutingModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    NgxMaskModule.forRoot(),
   ]
 })
 export class ModulesModule { }

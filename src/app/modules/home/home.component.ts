@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.controls);
+    this.loginForm.valid && console.log('válido');
   }
 
   getForm() {
