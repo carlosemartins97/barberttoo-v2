@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { CustomValidator } from 'src/app/shared/utils/validators/CustomValidator';
 
 @Component({
@@ -20,7 +21,9 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(8)])
   })
 
-  constructor() { }
+  loading: boolean = false;
+
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -34,7 +37,19 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.registerForm.valid && console.log('valido');
+    if(this.registerForm.valid) {
+      this.loading = true;
+      this.auth.register(this.registerForm.value).subscribe({
+        next: res => {
+          this.loading = false;
+          console.log(res);
+        },
+        error: error => {
+          this.loading = false;
+          console.log(error)
+        }
+      })
+    }
   }
 
 }

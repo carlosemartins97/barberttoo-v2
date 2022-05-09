@@ -45,7 +45,7 @@
         <label>Data de nascimento:</label>
   
         <div class="error-msg">
-          <span *ngIf="getForm().date.touched && getForm().date.errors">Insira uma data de nascimento.</span>
+          <span *ngIf="(getForm().date.touched && getForm().date.errors)">Insira uma data de nascimento.</span>
         </div>
       </div>
 
@@ -68,7 +68,10 @@
       </div>
 
       <div class="submit">
-        <button>cadastrar</button>
+        <button>
+          {{!loading ? 'cadastrar' : ''}}
+          <app-loader *ngIf="loading"></app-loader>
+        </button>
       </div>
 
     </form>
