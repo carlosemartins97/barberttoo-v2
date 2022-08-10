@@ -5,6 +5,7 @@ import { RegisterComponent } from './register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
@@ -17,7 +18,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     RegisterRoutingModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    SharedModule
+    SharedModule,
+    NgxMaskModule.forChild()
   ],
 })
 export class RegisterModule { }

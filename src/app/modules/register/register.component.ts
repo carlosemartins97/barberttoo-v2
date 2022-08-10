@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { CustomValidator } from 'src/app/shared/utils/validators/CustomValidator';
@@ -24,7 +25,7 @@ export class RegisterComponent implements OnInit {
 
   loading: boolean = false;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -44,6 +45,18 @@ export class RegisterComponent implements OnInit {
       this.auth.register(this.registerForm.value).subscribe({
         next: res => {
           this.loading = false;
+          const login = {
+            email: res.ds_Email,
+            password: res.cd_Password
+          }
+          this.auth.login(login).subscribe({
+            next: response => {
+              this.router.navigate(['dashboard']);
+            },
+            error: err => {
+              console.log(err)
+            }
+          })
           console.log(res);
         },
         error: error => {
