@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,20 +7,28 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  isHome: boolean;
+  isHome: boolean = true;
 
   urlWithoutMenu = [
     '/',
     '/register',
+    '/page-not-found'
   ]
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.dontShowHeader();
   }
 
   dontShowHeader() {
-    this.urlWithoutMenu.includes(window.location.pathname) ? this.isHome = true : this.isHome = false;
+    this.router.events.subscribe(val => {
+
+      if (val instanceof RoutesRecognized) {
+
+        this.urlWithoutMenu.includes(val.state.url) ? this.isHome = true : this.isHome = false;
+
+      }
+    });
   }
 }
