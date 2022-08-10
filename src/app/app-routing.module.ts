@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AutenticacaoGuard } from './core/guards/auth/auth.guard';
+import { AuthGuard } from './core/guards/auth/auth.guard';
 import { LoginGuard } from './core/guards/login/login.guard';
 
 const routes: Routes = [
@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./modules/dashboard/dashboard.module').then((m) => m.DashboardModule),
-    canLoad: [AutenticacaoGuard]
+    canLoad: [AuthGuard]
   },
   {
     path: 'page-not-found',

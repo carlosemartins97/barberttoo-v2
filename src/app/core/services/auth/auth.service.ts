@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Auth, RegisterInterface } from 'src/app/shared/utils/models/Auth';
-import { UsuarioService } from '../user/user.service';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private authService: UsuarioService
+    private authService: UserService
   ) { }
 
   login(payload: { email: string, password: string }) {
