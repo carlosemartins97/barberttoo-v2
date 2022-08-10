@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   templateUrl: './home.component.html',
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    if(this.loginForm.valid) {
+    if (this.loginForm.valid) {
       this.loading = true
       this.auth.login(this.loginForm.value).subscribe({
         next: res => {

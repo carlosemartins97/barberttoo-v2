@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { CustomValidator } from 'src/app/shared/utils/validators/CustomValidator';
 
 @Component({
@@ -11,6 +11,7 @@ import { CustomValidator } from 'src/app/shared/utils/validators/CustomValidator
 export class RegisterComponent implements OnInit {
 
   faArrowLeft = faArrowLeft;
+  submitted: boolean = false;
 
   registerForm = new FormGroup({
     name: new FormControl('', [Validators.required, CustomValidator.validateFullName]),
@@ -37,7 +38,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    if(this.registerForm.valid) {
+    this.submitted = true;
+    if (this.registerForm.valid) {
       this.loading = true;
       this.auth.register(this.registerForm.value).subscribe({
         next: res => {
