@@ -5,6 +5,7 @@ import { AgendamentoComponent } from './pages/agendamento/agendamento.component'
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FuncionariosComponent } from './pages/funcionarios/funcionarios.component';
 import { ServicosComponent } from './pages/servicos/servicos.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -13,7 +14,8 @@ import { ServicosComponent } from './pages/servicos/servicos.component';
     DashboardComponent,
     AgendamentoComponent,
     FuncionariosComponent,
-    ServicosComponent
+    ServicosComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

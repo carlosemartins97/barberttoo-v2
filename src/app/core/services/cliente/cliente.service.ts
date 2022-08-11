@@ -13,4 +13,8 @@ export class ClienteService {
   getClientById(id: string) {
     return this.http.get<Cliente>(`${environment.baseUrl}/cliente/${id}`).toPromise();
   }
+
+  updateClient() {
+    return this.http.get<Cliente>(`${environment.baseUrl}/cliente/update`).toPromise();
+  }
 }

@@ -7,7 +7,9 @@
     <div class="username">
       <span *ngIf="!loading">Olá, {{name}}!</span>
       <app-loader color='dark' *ngIf="loading"></app-loader>
+      <a routerLink="dashboard/profile">Editar perfil</a>
     </div>
+
 
     <ul class="header__menu">
       <li class="header__menu__item" *ngFor="let item of navHeader;">
