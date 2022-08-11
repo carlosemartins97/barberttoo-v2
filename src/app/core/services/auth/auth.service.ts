@@ -13,7 +13,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private authService: UserService
+    private userService: UserService
   ) { }
 
   login(payload: { email: string, password: string }) {
@@ -24,7 +24,9 @@ export class AuthService {
     return this.http.post<Auth>(`${this.apiURL}/login`, newPayload).pipe(
       tap((res) => {
         const authToken = res.token;
-        this.authService.salvaToken(authToken);
+        const id = res.id;
+        this.userService.salvaToken(authToken);
+        this.userService.salvaUserId(id);
       })
     );
   }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faBagShopping, faBars, faCalendarDays, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { ClienteService } from '../services/cliente/cliente.service';
+import { UserService } from '../services/user/user.service';
 import { HeaderItem } from './header.models';
 
 @Component({
@@ -9,7 +11,7 @@ import { HeaderItem } from './header.models';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  
+
   faCalendarDays = faCalendarDays;
   faBagShopping = faBagShopping;
   faUsers = faUsers;
@@ -17,17 +19,37 @@ export class HeaderComponent implements OnInit {
 
   isCollapsed = true;
 
+  name: string;
+  loading: boolean = false;
+
 
   navHeader: HeaderItem[] = [
-    {name: 'Agendamento', icon: faCalendarDays, link: '#'},
-    {name: 'Serviços', icon: faBagShopping, link: '#'},
-    {name: 'Funcionários', icon: faUsers, link: '#'},
+    { name: 'Agendamento', icon: faCalendarDays, link: 'agendamento' },
+    { name: 'Serviços', icon: faBagShopping, link: 'servicos' },
+    { name: 'Funcionários', icon: faUsers, link: 'funcionarios' },
   ]
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService, private clienteService: ClienteService) { }
 
   ngOnInit(): void {
-    
+    this.fetchClienteData();
+  }
+
+  logout() {
+    this.userService.logout();
+  }
+
+  fetchClienteData() {
+    this.loading = true;
+    const id = this.userService.retornaUserId();
+    this.clienteService.getClientById(id).then(res => {
+      this.name = res.nm_Cliente;
+      this.loading = false;
+    }).catch(err => {
+      console.log(err);
+      this.name = '-'
+      this.loading = false;
+    })
   }
 
 }

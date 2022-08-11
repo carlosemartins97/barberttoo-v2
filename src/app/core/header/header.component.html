@@ -1,16 +1,17 @@
 <header class="header">
   <nav class="header__container">
     <div class="header__logo">
-      <a href="#" aria-label="Logo Barbertoo">B</a>
+      <a routerLink="/" aria-label="Logo Barbertoo">B</a>
     </div>
 
     <div class="username">
-      <span>Olá, Carlos!</span>
+      <span *ngIf="!loading">Olá, {{name}}!</span>
+      <app-loader color='dark' *ngIf="loading"></app-loader>
     </div>
-    
+
     <ul class="header__menu">
       <li class="header__menu__item" *ngFor="let item of navHeader;">
-        <a [href]="item.link">
+        <a [routerLink]="item.link">
           <fa-icon [icon]="item.icon" [fixedWidth]="true"></fa-icon>
           {{item.name}}
         </a>
@@ -19,7 +20,7 @@
   </nav>
 
   <div class="header__user">
-    <button class="header__logout">
+    <button class="header__logout" (click)="logout()">
       Logout
     </button>
     <span>© Barberttoo - 2022</span>
@@ -33,11 +34,12 @@
     </div>
 
     <div class="username">
-      <span>Olá, Carlos!</span>
+      <span *ngIf="!loading">Olá, {{name}}!</span>
+      <app-loader color='dark' *ngIf="loading"></app-loader>
     </div>
 
     <button class="headerMobile__btnMenu" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
-    aria-controls="collapseExample">
+      aria-controls="collapseExample">
       <fa-icon [icon]="faBars" [fixedWidth]="true"></fa-icon>
     </button>
   </div>
@@ -51,7 +53,7 @@
       </li>
     </ul>
     <div class="user">
-      <button class="logout">
+      <button class="logout" (click)="logout()">
         Logout
       </button>
     </div>
