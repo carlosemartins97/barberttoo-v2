@@ -32,7 +32,7 @@
 <header class="headerMobile">
   <div class="headerMobile__bar">
     <div class="headerMobile__logo">
-      <a href="#" aria-label="Logo Barbertoo">B</a>
+      <a routerLink="/" aria-label="Logo Barbertoo">B</a>
     </div>
 
     <div class="username">
@@ -48,13 +48,14 @@
   <div class="nav" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
     <ul>
       <li *ngFor="let item of navHeader;">
-        <a [href]="item.link">
+        <a [routerLink]="item.link">
           <fa-icon [icon]="item.icon" [fixedWidth]="true"></fa-icon>
           {{item.name}}
         </a>
       </li>
     </ul>
     <div class="user">
+      <a routerLink="dashboard/profile">Editar perfil</a>
       <button class="logout" (click)="logout()">
         Logout
       </button>
