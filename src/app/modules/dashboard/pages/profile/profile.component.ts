@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Cliente } from 'src/app/core/models/cliente.model';
 import { ClienteService } from 'src/app/core/services/cliente/cliente.service';
 import { UserService } from 'src/app/core/services/user/user.service';
+import { InfoModalComponent } from 'src/app/shared/info-modal/info-modal.component';
 import { formataCpf } from 'src/app/shared/utils/functions/cpf';
 import { CustomValidator } from 'src/app/shared/utils/validators/CustomValidator';
 
@@ -12,6 +13,8 @@ import { CustomValidator } from 'src/app/shared/utils/validators/CustomValidator
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+
+  @ViewChild(InfoModalComponent) modal: InfoModalComponent;
 
   clientId: string;
   userData: Cliente;
@@ -44,6 +47,10 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  ngAfterViewInit() {
+    this.modal.open();
+  }
+
   setUserData() {
     this.form.controls.cd_Cpf.setValue(this.userData.cd_Cpf);
     this.form.controls.nm_Cliente.setValue(this.userData.nm_Cliente);
@@ -65,6 +72,7 @@ export class ProfileComponent implements OnInit {
       this.clienteService.updateClient(payload).then(res => {
         console.log(res);
         this.clienteService.dadosAtualizados.next(res);
+        this.modal.open();
         this.loadingUpdate = false;
       }).catch(error => {
         console.log(error);

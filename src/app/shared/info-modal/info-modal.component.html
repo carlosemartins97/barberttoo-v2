@@ -1,0 +1,12 @@
+<ng-template #content let-modal>
+  <div class="modal-header" *ngIf="title">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body" *ngIf="text">
+    <span>{{text}}</span>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="close" (click)="modal.close('Save click')">Fechar</button>
+  </div>
+</ng-template>
