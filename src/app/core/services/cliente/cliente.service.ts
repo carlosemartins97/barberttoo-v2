@@ -14,7 +14,7 @@ export class ClienteService {
     return this.http.get<Cliente>(`${environment.baseUrl}/cliente/${id}`).toPromise();
   }
 
-  updateClient() {
-    return this.http.get<Cliente>(`${environment.baseUrl}/cliente/update`).toPromise();
+  updateClient(payload: Cliente) {
+    return this.http.put<Cliente>(`${environment.baseUrl}/cliente/update`, payload).toPromise();
   }
 }

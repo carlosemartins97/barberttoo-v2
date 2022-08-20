@@ -1,5 +1,6 @@
-@import 'colors';
-@import 'fonts';
+@import "colors";
+@import "fonts";
+@import "utils";
 
 * {
   margin: 0;
@@ -12,20 +13,22 @@ body {
   background: $color-dark;
 }
 
-@media (max-width: 997px){
+@media (max-width: 997px) {
   html {
-      font-size: 93.75%;
+    font-size: 93.75%;
   }
 }
-@media (max-width: 765px){
+@media (max-width: 765px) {
   html {
-      font-size: 87.5%;
+    font-size: 87.5%;
   }
 }
 
-*, button, input {
-  border:0;
-  outline:0;
+*,
+button,
+input {
+  border: 0;
+  outline: 0;
   font-family: $font-inter, sans-serif;
 }
 button {
@@ -36,18 +39,24 @@ a {
   text-decoration: none;
   &:hover {
     text-decoration: none;
-    filter:brightness(1) !important;
+    filter: brightness(1) !important;
   }
 }
 
-a,button {
+a,
+button {
   transition: all 0.2s;
   &:hover {
     filter: brightness(0.8);
   }
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-transform: uppercase;
 }
 
@@ -55,16 +64,15 @@ ul {
   list-style: none;
 }
 
-a[href]:not([tabindex='-1']),
-area[href]:not([tabindex='-1']),
-input:not([disabled]):not([tabindex='-1']),
-select:not([disabled]):not([tabindex='-1']),
-textarea:not([disabled]):not([tabindex='-1']),
-button:not([disabled]):not([tabindex='-1']),
-iframe:not([tabindex='-1']),
-[tabindex]:not([tabindex='-1']),
-[contentEditable=true]:not([tabindex='-1'])
-{
+a[href]:not([tabindex="-1"]),
+area[href]:not([tabindex="-1"]),
+input:not([disabled]):not([tabindex="-1"]),
+select:not([disabled]):not([tabindex="-1"]),
+textarea:not([disabled]):not([tabindex="-1"]),
+button:not([disabled]):not([tabindex="-1"]),
+iframe:not([tabindex="-1"]),
+[tabindex]:not([tabindex="-1"]),
+[contentEditable="true"]:not([tabindex="-1"]) {
   &:focus-visible {
     outline: 2px solid $color-amarelo;
     border-radius: 2px;

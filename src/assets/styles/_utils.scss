@@ -1,0 +1,49 @@
+@import "dependencies";
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+
+  &__content {
+    padding: 16px;
+
+    @include mq(md) {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    color: $color-amarelo;
+  }
+
+  &__card {
+    background: $color-branco;
+    color: $color-dark;
+    border-radius: 12px;
+    padding: 24px;
+    border: 2px solid $color-amarelo;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+  }
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $input-background;
+  border-radius: 8px;
+}

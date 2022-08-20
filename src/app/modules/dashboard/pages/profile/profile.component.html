@@ -1,1 +1,81 @@
-<p>profile works!</p>
+<div class="card-container profile">
+
+  <div class="card-container__content">
+    <h1 class="card-container__title">Perfil</h1>
+
+    <div class="card-container__card">
+      <h2 class="card-container__subtitle">Edite suas informações abaixo: </h2>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!loading">
+        <div class="label-float">
+          <input type="text" placeholder=" " name="nm_Cliente" id="nm_Cliente" formControlName="nm_Cliente" />
+          <label>Nome completo:</label>
+
+          <div class="error-msg">
+            <span
+              *ngIf="(getForm().nm_Cliente.touched && getForm().nm_Cliente.errors) || (getForm().nm_Cliente.errors && submitted)">Insira
+              um nome completo</span>
+          </div>
+        </div>
+
+        <div class="label-float">
+          <input type="email" placeholder=" " name="ds_Email" id="ds_Email" formControlName="ds_Email" />
+          <label>E-mail:</label>
+
+          <div class="error-msg">
+            <span
+              *ngIf="(getForm().ds_Email.touched && getForm().ds_Email.errors )|| (getForm().ds_Email.errors && submitted)">Insira
+              um e-mail válido.</span>
+          </div>
+        </div>
+        <div class="label-float">
+          <input type="text" placeholder=" " name="cd_Cpf" id="cd_Cpf" formControlName="cd_Cpf" mask="000.000.000-00"
+            [attr.disabled]="'true'" />
+          <label>CPF:</label>
+
+          <div class="error-msg">
+            <span
+              *ngIf="(getForm().cd_Cpf.touched && getForm().cd_Cpf.errors) || (getForm().cd_Cpf.errors && submitted)">Insira
+              um
+              CPF válido.</span>
+          </div>
+        </div>
+
+        <div class="label-float">
+          <input type="text" placeholder=" " name="cd_Celular" id="cd_Celular" formControlName="cd_Celular" />
+          <label>Celular:</label>
+
+          <div class="error-msg">
+            <span
+              *ngIf="(getForm().cd_Celular.touched && getForm().cd_Celular.errors) || (getForm().cd_Celular.errors && submitted)">Insira
+              um celular válido.</span>
+          </div>
+        </div>
+
+        <div class="label-float">
+          <input type="date" placeholder=" " name="dt_BirthDate" id="dt_BirthDate" formControlName="dt_BirthDate"
+            [attr.disabled]="'true'" />
+          <label>Data de nascimento:</label>
+
+          <div class="error-msg">
+            <span
+              *ngIf="(getForm().dt_BirthDate.touched && getForm().dt_BirthDate.errors) || (getForm().dt_BirthDate.errors && submitted)">Insira
+              uma data de nascimento.</span>
+          </div>
+        </div>
+
+        <div class="submit">
+          <button>
+            {{!loadingUpdate ? 'Atualizar dados' : ''}}
+            <app-loader *ngIf="loadingUpdate"></app-loader>
+          </button>
+        </div>
+      </form>
+
+      <app-loader *ngIf="loading" color="dark"></app-loader>
+    </div>
+
+  </div>
+
+
+</div>

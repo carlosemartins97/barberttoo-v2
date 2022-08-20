@@ -6,6 +6,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FuncionariosComponent } from './pages/funcionarios/funcionarios.component';
 import { ServicosComponent } from './pages/servicos/servicos.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
@@ -19,7 +22,10 @@ import { ProfileComponent } from './pages/profile/profile.component';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    ReactiveFormsModule,
+    SharedModule,
+    NgxMaskModule.forChild()
   ]
 })
 export class DashboardModule { }
