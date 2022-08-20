@@ -47,10 +47,6 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  ngAfterViewInit() {
-    this.modal.open();
-  }
-
   setUserData() {
     this.form.controls.cd_Cpf.setValue(this.userData.cd_Cpf);
     this.form.controls.nm_Cliente.setValue(this.userData.nm_Cliente);

@@ -23,8 +23,12 @@
     background: $color-branco;
     color: $color-dark;
     border-radius: 12px;
-    padding: 24px;
+    padding: 16px;
     border: 2px solid $color-amarelo;
+
+    @include mq(md) {
+      padding: 24px;
+    }
   }
 
   &__subtitle {
