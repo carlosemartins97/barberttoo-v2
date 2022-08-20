@@ -33,6 +33,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchClienteData();
+
+    this.clienteService.dadosAtualizados.subscribe(res => {
+      this.name = res.nm_Cliente;
+    })
   }
 
   logout() {

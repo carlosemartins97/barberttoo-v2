@@ -64,6 +64,7 @@ export class ProfileComponent implements OnInit {
       payload.id = this.clientId;
       this.clienteService.updateClient(payload).then(res => {
         console.log(res);
+        this.clienteService.dadosAtualizados.next(res);
         this.loadingUpdate = false;
       }).catch(error => {
         console.log(error);

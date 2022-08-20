@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Cliente } from '../../models/cliente.model';
 
@@ -7,6 +8,8 @@ import { Cliente } from '../../models/cliente.model';
   providedIn: 'root'
 })
 export class ClienteService {
+
+  dadosAtualizados = new Subject<Cliente>();
 
   constructor(private http: HttpClient) { }
 
