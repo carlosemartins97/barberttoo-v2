@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faBagShopping, faBars, faCalendarDays, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { ClienteService } from '../services/cliente/cliente.service';
 import { UserService } from '../services/user/user.service';
@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
     { name: 'Funcionários', icon: faUsers, link: 'dashboard/funcionarios' },
   ]
 
-  constructor(private router: Router, private userService: UserService, private clienteService: ClienteService) { }
+  constructor(private router: Router, private userService: UserService, private clienteService: ClienteService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.fetchClienteData();

@@ -48,7 +48,7 @@
   <div class="nav" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
     <ul>
       <li *ngFor="let item of navHeader;">
-        <a [routerLink]="item.link">
+        <a [routerLink]="item.link" (click)="collapse.toggle()">
           <fa-icon [icon]="item.icon" [fixedWidth]="true"></fa-icon>
           {{item.name}}
         </a>
