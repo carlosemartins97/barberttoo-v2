@@ -13,59 +13,13 @@
   </div>
 
   <div class="agendamento__body">
-    <div class="grid">
-      <div class="cards">
-        <div class="cards__header">
-          <h2>Barba</h2>
-          <button class="delete">
-            <fa-icon [icon]="faTrash" [fixedWidth]="true"></fa-icon>
-          </button>
-        </div>
-        <div class="cards__body">
-          <span class="cards__date">21 Ago.</span>
-          <div class="cards__info">
-            <div class="cards__hora">
-              <p>Horário: <strong>14:00</strong></p>
-              <p>Funcionário: <strong>Joaquim Jhonsons</strong></p>
-              <p>Celular: <strong>(13) 99735-2803</strong></p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="grid" *ngIf="!loading">
+      <app-card-agendamento *ngFor="let agendamento of agendamentos; let i = index" [agendamento]="agendamento">
+      </app-card-agendamento>
+    </div>
 
-      <div class="cards">
-        <div class="cards__header">
-          <h2>Barba</h2>
-          <button class="delete">
-            <fa-icon [icon]="faTrash" [fixedWidth]="true"></fa-icon>
-          </button>
-        </div>
-        <div class="cards__body">
-          <span class="cards__date">21 Ago.</span>
-          <div class="cards__info">
-            <p>Horário: <strong>14:00</strong></p>
-            <p>Funcionário: <strong>Joaquim Jhonsons</strong></p>
-            <p>Celular: <strong>(13) 99735-2803</strong></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cards">
-        <div class="cards__header">
-          <h2>Barba</h2>
-          <button class="delete">
-            <fa-icon [icon]="faTrash" [fixedWidth]="true"></fa-icon>
-          </button>
-        </div>
-        <div class="cards__body">
-          <span class="cards__date">21 Ago.</span>
-          <div class="cards__info">
-            <p>Horário: <strong>14:00</strong></p>
-            <p>Funcionário: <strong>Joaquim Jhonsons</strong></p>
-            <p>Celular: <strong>(13) 99735-2803</strong></p>
-          </div>
-        </div>
-      </div>
+    <div class="loader" *ngIf="loading">
+      <app-loader></app-loader>
     </div>
   </div>
 </div>

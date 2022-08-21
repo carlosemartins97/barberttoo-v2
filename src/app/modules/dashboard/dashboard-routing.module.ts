@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AgendamentoComponent } from './pages/agendamento/agendamento.component';
 import { CreateAgendamentoComponent } from './pages/agendamento/subpages/create-agendamento/create-agendamento.component';
+import { DetailsAgendamentoComponent } from './pages/agendamento/subpages/details-agendamento/details-agendamento.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FuncionariosComponent } from './pages/funcionarios/funcionarios.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'agendamento/create',
     component: CreateAgendamentoComponent
+  },
+  {
+    path: 'agendamento/details/:id',
+    component: DetailsAgendamentoComponent
   },
   {
     path: 'servicos',

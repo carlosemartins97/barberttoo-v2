@@ -11,6 +11,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
 import { CreateAgendamentoComponent } from './pages/agendamento/subpages/create-agendamento/create-agendamento.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CardAgendamentoComponent } from './pages/agendamento/components/card-agendamento/card-agendamento.component';
+import { DetailsAgendamentoComponent } from './pages/agendamento/subpages/details-agendamento/details-agendamento.component';
 
 
 
@@ -21,7 +23,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FuncionariosComponent,
     ServicosComponent,
     ProfileComponent,
-    CreateAgendamentoComponent
+    CreateAgendamentoComponent,
+    CardAgendamentoComponent,
+    DetailsAgendamentoComponent
   ],
   imports: [
     CommonModule,

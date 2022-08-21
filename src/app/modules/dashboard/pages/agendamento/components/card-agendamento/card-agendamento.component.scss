@@ -1,0 +1,100 @@
+@import "../../../../../../../assets/styles/dependencies";
+
+.cards {
+  background: $color-branco;
+  border-radius: 8px;
+  color: $color-dark;
+  padding: 16px;
+  border: 2px solid $color-amarelo;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      font-size: 21px;
+      line-height: 31px;
+      color: $color-amarelo;
+      position: relative;
+      &::after {
+        content: "";
+        width: 48px;
+        height: 1px;
+        background: $color-dark;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
+
+    button {
+      background: $color-red;
+      border-radius: 50%;
+      height: 36px;
+      width: 36px;
+      transition: 0.3s all;
+
+      ::ng-deep fa-icon {
+        color: $color-branco;
+      }
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include mq(md) {
+      flex-direction: row;
+    }
+  }
+
+  &__date {
+    font-size: 28px;
+    line-height: 38px;
+    width: 100%;
+    display: block;
+  }
+
+  &__info {
+    margin-top: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    p {
+      margin: 0;
+      // line-height: 28px;
+      line-height: 18px;
+      display: flex;
+      flex-direction: column;
+
+      @include mq(md) {
+        display: block;
+      }
+    }
+  }
+
+  &__detalhes {
+    background: $color-info;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    border-radius: 8px;
+
+    a {
+      color: $color-branco;
+    }
+  }
+}
