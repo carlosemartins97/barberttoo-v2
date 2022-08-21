@@ -13,4 +13,8 @@ export class AgendamentoService {
   getAgendamentos(id: string) {
     return this.http.get<Agendamento[]>(`${environment.baseUrl}/agendamento/cliente/${id}`).toPromise();
   }
+
+  deleteAgendamento(id: number) {
+    return this.http.delete<any>(`${environment.baseUrl}/agendamento/${id}`).toPromise();
+  }
 }

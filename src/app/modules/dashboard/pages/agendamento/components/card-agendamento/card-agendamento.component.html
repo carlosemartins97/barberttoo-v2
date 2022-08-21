@@ -1,8 +1,9 @@
 <div class="cards">
   <div class="cards__header">
     <h2>{{agendamento.servico.nm_servico}}</h2>
-    <button class="delete">
-      <fa-icon [icon]="faTrash" [fixedWidth]="true"></fa-icon>
+    <button class="delete" (click)="openAlertModal()">
+      <fa-icon [icon]="faTrash" [fixedWidth]="true" *ngIf="!loading"></fa-icon>
+      <app-loader *ngIf="loading"></app-loader>
     </button>
   </div>
   <div class="cards__body">
@@ -21,3 +22,12 @@
     </div>
   </div>
 </div>
+
+<app-alert-modal title="Atenção!" (actionClicked)="onDelete()">
+  <p>
+    Você está prestes a excluir o agendamento da data <strong>{{agendamento.dt_Agendamento | date:
+      'dd/MM/yy'}}</strong>
+    para o
+    serviço de <strong>{{agendamento.servico.nm_servico}}</strong>
+  </p>
+</app-alert-modal>

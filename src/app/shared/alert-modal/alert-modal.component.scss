@@ -1,0 +1,35 @@
+@import "../../../assets/styles/dependencies";
+
+::ng-deep .alert-modal {
+  color: $color-dark;
+  .modal-header,
+  .modal-footer {
+    border: unset;
+
+    .botao {
+      height: 36px;
+      border: none;
+      font-size: 14px;
+      font-weight: normal;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      opacity: 1;
+
+      &.fechar {
+        background: $color-info;
+        color: $color-branco;
+      }
+      &.delete {
+        background: $color-red;
+        color: $color-branco;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 16px 16px 12px 16px;
+  }
+}

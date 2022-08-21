@@ -3,7 +3,10 @@
     <div>
       <h1>Agendamentos ativos</h1>
 
-      <p>Aqui você consegue visualizar todos os seus agendamentos ativos ou realizar um novo agendamento.</p>
+      <p *ngIf="agendamentos.length > 0 && !loading">Aqui você consegue visualizar todos os seus agendamentos ativos ou
+        realizar um novo agendamento.</p>
+      <p *ngIf="agendamentos.length === 0 && !loading">Parece que você não possui nenhum agendamento ativo no momento.
+        Que tal realizar um serviço conosco?</p>
     </div>
     <div>
       <a class="agendamento__novo" [routerLink]="['create']" aria-label="novo agendamento">
@@ -14,7 +17,8 @@
 
   <div class="agendamento__body">
     <div class="grid" *ngIf="!loading">
-      <app-card-agendamento *ngFor="let agendamento of agendamentos; let i = index" [agendamento]="agendamento">
+      <app-card-agendamento *ngFor="let agendamento of agendamentos; let i = index" [agendamento]="agendamento"
+        (deleteClicked)="getAgendamentos()">
       </app-card-agendamento>
     </div>
 
