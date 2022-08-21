@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faCalendarPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-agendamento',
@@ -8,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class AgendamentoComponent implements OnInit {
 
   constructor() { }
+
+  faTrash = faTrash;
+  faCalendarPlus = faCalendarPlus
 
   ngOnInit(): void {
   }

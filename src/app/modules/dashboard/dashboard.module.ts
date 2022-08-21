@@ -9,6 +9,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
+import { CreateAgendamentoComponent } from './pages/agendamento/subpages/create-agendamento/create-agendamento.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -18,12 +20,14 @@ import { NgxMaskModule } from 'ngx-mask';
     AgendamentoComponent,
     FuncionariosComponent,
     ServicosComponent,
-    ProfileComponent
+    ProfileComponent,
+    CreateAgendamentoComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
     SharedModule,
     NgxMaskModule.forChild()
   ]

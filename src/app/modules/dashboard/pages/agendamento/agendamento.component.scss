@@ -1,0 +1,121 @@
+@import "../../../../../assets/styles/dependencies";
+
+.agendamento {
+  padding: 16px;
+  &__header {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include mq(lg) {
+      align-items: center;
+      flex-direction: row;
+    }
+    h1 {
+      color: $color-amarelo;
+      font-size: 28px;
+
+      @include mq(md) {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__novo {
+    margin-top: 24px;
+    color: $color-branco;
+    background: $color-info;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mq(lg) {
+      padding: 12px;
+    }
+
+    ::ng-deep fa-icon {
+      font-size: 21px;
+      margin-right: 8px;
+    }
+  }
+
+  &__body {
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+
+      @include mq(lg) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
+
+.cards {
+  background: $color-branco;
+  border-radius: 8px;
+  color: $color-dark;
+  padding: 16px;
+  border: 2px solid $color-amarelo;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      font-size: 21px;
+      line-height: 31px;
+      color: $color-amarelo;
+      position: relative;
+      &::after {
+        content: "";
+        width: 48px;
+        height: 1px;
+        background: $color-dark;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
+
+    button {
+      background: $color-red;
+      border-radius: 50%;
+      height: 36px;
+      width: 36px;
+      transition: 0.3s all;
+
+      ::ng-deep fa-icon {
+        color: $color-branco;
+      }
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__date {
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  &__info {
+    p {
+      margin: 0;
+      line-height: 28px;
+    }
+  }
+}
