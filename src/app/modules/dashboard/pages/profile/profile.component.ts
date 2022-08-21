@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Cliente } from 'src/app/core/models/cliente.model';
 import { ClienteService } from 'src/app/core/services/cliente/cliente.service';
 import { UserService } from 'src/app/core/services/user/user.service';
@@ -29,6 +30,8 @@ export class ProfileComponent implements OnInit {
     dt_BirthDate: new FormControl('', [Validators.required]),
     ds_Email: new FormControl('', [Validators.required, Validators.email]),
   })
+
+  faArrowLeft = faArrowLeft;
 
   constructor(private userService: UserService, private clienteService: ClienteService) {
     this.clientId = this.userService.retornaUserId();

@@ -24,7 +24,7 @@ const routes: Routes = [
     component: CreateAgendamentoComponent
   },
   {
-    path: 'agendamento/details/:id',
+    path: 'agendamento/:id',
     component: DetailsAgendamentoComponent
   },
   {

@@ -17,6 +17,23 @@
 
   &__title {
     color: $color-amarelo;
+    font-size: 24px;
+
+    @include mq(lg) {
+      font-size: 30px;
+    }
+  }
+
+  &__back {
+    color: $color-branco;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: flex;
+    font-size: 14px;
+
+    &:hover {
+      color: $color-branco;
+    }
   }
 
   &__card {

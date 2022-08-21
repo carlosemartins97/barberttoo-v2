@@ -87,7 +87,6 @@
 
   &__detalhes {
     background: $color-info;
-    padding: 8px;
     display: flex;
     justify-content: center;
     margin-top: 16px;
@@ -95,6 +94,10 @@
 
     a {
       color: $color-branco;
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding: 8px;
     }
   }
 }
