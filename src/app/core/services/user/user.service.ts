@@ -39,6 +39,10 @@ export class UserService {
     return localStorage.getItem(this.KEY) ?? '';
   }
 
+  excluiId() {
+    return localStorage.removeItem(this.KEY);
+  }
+
   salvaToken(token: string) {
     this.tokenService.salvaToken(token);
     this.decodificaJWT();
@@ -46,6 +50,7 @@ export class UserService {
 
   logout() {
     this.tokenService.excluiToken();
+    this.excluiId();
     this.usuarioSubject.next({});
     this.router.navigate(['']);
   }

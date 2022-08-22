@@ -53,6 +53,8 @@ export class HeaderComponent implements OnInit {
       console.log(err);
       this.name = '-'
       this.loading = false;
+      this.userService.logout();
+      this.router.navigate(['']);
     })
   }
 

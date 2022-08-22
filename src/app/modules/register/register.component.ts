@@ -44,17 +44,18 @@ export class RegisterComponent implements OnInit {
       this.loading = true;
       this.auth.register(this.registerForm.value).subscribe({
         next: res => {
-          this.loading = false;
           const login = {
             email: res.ds_Email,
             password: res.cd_Password
           }
           this.auth.login(login).subscribe({
             next: response => {
+              this.loading = false;
               this.router.navigate(['dashboard']);
             },
             error: err => {
               console.log(err)
+              this.loading = false;
             }
           })
           console.log(res);
