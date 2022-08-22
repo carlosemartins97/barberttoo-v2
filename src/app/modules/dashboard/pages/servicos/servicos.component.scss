@@ -1,0 +1,54 @@
+@import "../../../../../assets/styles/dependencies";
+
+.servicos {
+  padding: 16px;
+  &__header {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include mq(lg) {
+      align-items: center;
+      flex-direction: row;
+    }
+    h1 {
+      color: $color-amarelo;
+      font-size: 28px;
+
+      @include mq(md) {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__novo {
+    margin-top: 24px;
+    color: $color-branco;
+    background: $color-info;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mq(lg) {
+      padding: 12px;
+    }
+
+    ::ng-deep fa-icon {
+      font-size: 21px;
+      margin-right: 8px;
+    }
+  }
+
+  &__body {
+    .loader {
+      margin-top: 32px;
+    }
+  }
+}

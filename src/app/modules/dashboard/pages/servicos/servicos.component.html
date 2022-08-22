@@ -1,1 +1,18 @@
-<p>servicos works!</p>
+<div class="servicos">
+  <div class="servicos__header">
+    <div>
+      <h1>Serviços</h1>
+
+      <p>Veja todos os serviços que estamos oferecendo no momento. </p>
+    </div>
+  </div>
+
+  <div class="servicos__body">
+
+    <app-card-servicos></app-card-servicos>
+
+    <div class="loader" *ngIf="loading">
+      <app-loader></app-loader>
+    </div>
+  </div>
+</div>

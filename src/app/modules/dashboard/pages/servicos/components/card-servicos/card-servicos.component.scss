@@ -1,0 +1,77 @@
+@import "../../../../../../../assets/styles/dependencies";
+
+.card-servicos {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid $color-amarelo;
+  padding: 16px;
+  background: $color-branco;
+
+  &__collapse {
+    width: 100%;
+    border: none;
+    background: none;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      font-size: 16px;
+      margin: 0;
+      color: $color-amarelo;
+      font-weight: 700;
+
+      @include mq(lg) {
+        font-size: 21px;
+        font-weight: 900;
+      }
+    }
+  }
+
+  &__details {
+    ::ng-deep fa-icon {
+      > svg {
+        transition: all 0.3s;
+      }
+
+      &.open {
+        > svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__price {
+    color: $color-info;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    margin-right: 8px;
+
+    @include mq(lg) {
+      font-size: 18px;
+      font-weight: 900;
+    }
+  }
+
+  &__body {
+    color: $color-dark;
+    padding-top: 8px;
+
+    h3 {
+      font-size: 14px;
+      line-height: 18px;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}

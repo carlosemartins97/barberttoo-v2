@@ -13,6 +13,8 @@ import { CreateAgendamentoComponent } from './pages/agendamento/subpages/create-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardAgendamentoComponent } from './pages/agendamento/components/card-agendamento/card-agendamento.component';
 import { DetailsAgendamentoComponent } from './pages/agendamento/subpages/details-agendamento/details-agendamento.component';
+import { CardServicosComponent } from './pages/servicos/components/card-servicos/card-servicos.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -25,7 +27,8 @@ import { DetailsAgendamentoComponent } from './pages/agendamento/subpages/detail
     ProfileComponent,
     CreateAgendamentoComponent,
     CardAgendamentoComponent,
-    DetailsAgendamentoComponent
+    DetailsAgendamentoComponent,
+    CardServicosComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +36,7 @@ import { DetailsAgendamentoComponent } from './pages/agendamento/subpages/detail
     ReactiveFormsModule,
     FontAwesomeModule,
     SharedModule,
+    NgbModule,
     NgxMaskModule.forChild()
   ]
 })
