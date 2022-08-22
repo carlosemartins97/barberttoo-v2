@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { CrudService } from 'src/app/core/models/service.model';
 
 @Component({
   selector: 'app-card-servicos',
@@ -8,8 +9,9 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 })
 export class CardServicosComponent implements OnInit {
 
-  isCollapsed = true;
+  @Input() servico: CrudService;
 
+  isCollapsed = true;
   faAngleDown = faAngleDown;
 
   constructor() { }

@@ -47,6 +47,9 @@
   }
 
   &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     .loader {
       margin-top: 32px;
     }

@@ -15,23 +15,39 @@
 
   &__header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    flex-direction: column;
+
+    @include mq(lg) {
+      flex-direction: row;
+      align-items: center;
+    }
 
     h2 {
       font-size: 16px;
       margin: 0;
       color: $color-amarelo;
       font-weight: 700;
+      margin-bottom: 8px;
 
       @include mq(lg) {
-        font-size: 21px;
-        font-weight: 900;
+        font-size: 18px;
+        margin-bottom: 0;
       }
     }
   }
 
   &__details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @include mq(lg) {
+      display: block;
+      width: auto;
+    }
+
     ::ng-deep fa-icon {
       > svg {
         transition: all 0.3s;
@@ -54,7 +70,6 @@
 
     @include mq(lg) {
       font-size: 18px;
-      font-weight: 900;
     }
   }
 

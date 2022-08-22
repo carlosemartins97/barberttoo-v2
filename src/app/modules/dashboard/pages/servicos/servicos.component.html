@@ -9,7 +9,7 @@
 
   <div class="servicos__body">
 
-    <app-card-servicos></app-card-servicos>
+    <app-card-servicos *ngFor="let servico of servicos;" [servico]="servico"></app-card-servicos>
 
     <div class="loader" *ngIf="loading">
       <app-loader></app-loader>

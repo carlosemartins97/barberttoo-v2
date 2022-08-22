@@ -2,10 +2,10 @@
   <button type="button" class="card-servicos__collapse" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
     aria-controls="collapseExample">
     <div class="card-servicos__header">
-      <h2>Barba</h2>
+      <h2>{{servico.nm_servico}}</h2>
 
       <div class="card-servicos__details">
-        <span class="card-servicos__price">R$ 12,90</span>
+        <span class="card-servicos__price">R$ {{servico.vl_preco.toFixed(2)}}</span>
         <fa-icon [icon]="faAngleDown" [fixedWidth]="true" [ngClass]="{'open': !isCollapsed}"></fa-icon>
       </div>
     </div>
@@ -13,7 +13,7 @@
   <div class="card-servicos__body" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
     <div>
       <h3>Descrição</h3>
-      <p>Serviço de cortar cabelo com qualidade</p>
+      <p>{{servico.ds_servico}}</p>
     </div>
   </div>
 </div>
