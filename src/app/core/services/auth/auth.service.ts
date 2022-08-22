@@ -25,8 +25,10 @@ export class AuthService {
       tap((res) => {
         const authToken = res.token;
         const id = res.id;
+        const role = res.profile;
         this.userService.salvaToken(authToken);
         this.userService.salvaUserId(id);
+        this.userService.salvaUserRole(role);
       })
     );
   }

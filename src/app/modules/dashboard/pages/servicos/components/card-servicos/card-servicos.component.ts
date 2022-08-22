@@ -10,6 +10,7 @@ import { CrudService } from 'src/app/core/models/service.model';
 export class CardServicosComponent implements OnInit {
 
   @Input() servico: CrudService;
+  @Input() role: string;
 
   isCollapsed = true;
   faAngleDown = faAngleDown;

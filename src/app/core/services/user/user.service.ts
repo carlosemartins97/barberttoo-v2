@@ -23,7 +23,9 @@ export class UserService {
     const token = this.tokenService.retornaToken();
     const usuario = jwt_decode(token) as User;
     const id = this.retornaUserId();
+    const role = this.retornaUserRole();
     usuario.id = Number(id);
+    usuario.role = role;
     this.usuarioSubject.next(usuario);
   }
 
@@ -41,6 +43,18 @@ export class UserService {
 
   excluiId() {
     return localStorage.removeItem(this.KEY);
+  }
+
+  salvaUserRole(role: string) {
+    localStorage.setItem('role', role);
+  }
+
+  retornaUserRole() {
+    return localStorage.getItem('role') ?? '';
+  }
+
+  excluiRole() {
+    localStorage.removeItem('role');
   }
 
   salvaToken(token: string) {

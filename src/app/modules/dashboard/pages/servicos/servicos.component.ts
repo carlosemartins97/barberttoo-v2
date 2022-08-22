@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faScissors } from '@fortawesome/free-solid-svg-icons';
 import { CrudService } from 'src/app/core/models/service.model';
+import { UserService } from 'src/app/core/services/user/user.service';
 import { ServicosService } from './services/servicos.service';
 
 @Component({
@@ -13,10 +14,14 @@ export class ServicosComponent implements OnInit {
   servicos: CrudService[];
   loading: boolean = false;
 
+  role: string;
+
   //icons
   faScissors = faScissors;
 
-  constructor(private servicosService: ServicosService) { }
+  constructor(private servicosService: ServicosService, private userService: UserService) {
+    this.role = this.userService.retornaUserRole();
+  }
 
   ngOnInit(): void {
     this.getServicos();
