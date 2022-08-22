@@ -16,4 +16,7 @@
       <p>{{servico.ds_servico}}</p>
     </div>
   </div>
+  <div class="card-servicos__footer">
+    <a routerLink="../agendamento/create" [queryParams]="{service: servico.nm_servico}">Agendar</a>
+  </div>
 </div>

@@ -89,4 +89,23 @@
       line-height: 18px;
     }
   }
+
+  &__footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+    a {
+      width: auto;
+      text-align: center;
+      padding: 8px;
+      background: $color-amarelo;
+      border-radius: 8px;
+      color: $color-branco;
+
+      @include mq(md) {
+        width: 120px;
+      }
+    }
+  }
 }
