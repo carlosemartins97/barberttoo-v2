@@ -1,0 +1,57 @@
+@import "../../../assets/styles/dependencies";
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+
+  &__content {
+    padding: 16px;
+
+    @include mq(md) {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    color: $color-amarelo;
+    font-size: 24px;
+
+    @include mq(lg) {
+      font-size: 30px;
+    }
+  }
+
+  &__back {
+    color: $color-branco;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: flex;
+    font-size: 14px;
+
+    &:hover {
+      color: $color-branco;
+    }
+  }
+
+  &__card {
+    background: $color-branco;
+    color: $color-dark;
+    border-radius: 12px;
+    padding: 16px;
+    border: 2px solid $color-amarelo;
+
+    @include mq(md) {
+      padding: 24px;
+    }
+  }
+}
+
+.back {
+  ::ng-deep fa-icon {
+    margin-right: 8px;
+    color: $color-amarelo;
+  }
+}

@@ -1,48 +1,36 @@
-<div class="card-container details">
+<app-card-skeleton [title]="'Detalhes do agendamento'" class="details">
+  <div class="content" *ngIf="!loadingPage">
+    <div class="user-content">
+      <h2>Dados do usuário</h2>
 
-  <div class="card-container__content">
-    <a class="card-container__back back" [routerLink]="['../']">
-      <fa-icon [icon]="faArrowLeft" class="icon"></fa-icon>
-      Voltar
-    </a>
-
-    <h1 class="card-container__title">Detalhes do agendamento</h1>
-
-    <div class="card-container__card">
-      <div class="content" *ngIf="!loadingPage">
-        <div class="user-content">
-          <h2 class="card-container__subtitle">Dados do usuário:</h2>
-
-          <div class="dados">
-            <p><strong>Nome:</strong> <br> {{agendamento?.cliente?.nm_Cliente}}</p>
-            <p><strong>E-mail:</strong> <br> {{agendamento?.cliente?.ds_Email}}</p>
-            <p><strong>Celular:</strong> <br> {{agendamento?.cliente?.cd_Celular}}</p>
-          </div>
-        </div>
-        <div class="func-content">
-          <h2 class="card-container__subtitle">Dados do agendamento:</h2>
-
-          <div class="dados">
-            <p><strong>Data:</strong> <br> {{agendamento?.dt_Agendamento | date: 'dd/MM/yy'}}</p>
-            <p><strong>Horário:</strong> <br> {{agendamento?.dt_Agendamento | date: 'HH:mm'}}</p>
-            <p><strong>Atendente:</strong> <br> {{agendamento?.funcionario?.nm_Funcionario}}</p>
-            <p><strong>Contato:</strong> <br> {{agendamento?.funcionario?.cd_Celular}} <br>
-              {{agendamento?.funcionario?.ds_Email}}</p>
-          </div>
-        </div>
-
+      <div class="dados">
+        <p><strong>Nome:</strong> <br> {{agendamento?.cliente?.nm_Cliente}}</p>
+        <p><strong>E-mail:</strong> <br> {{agendamento?.cliente?.ds_Email}}</p>
+        <p><strong>Celular:</strong> <br> {{agendamento?.cliente?.cd_Celular}}</p>
       </div>
-      <div class="delete" *ngIf="!loadingPage">
-        <button type="button" class="delete" (click)="openAlertModal()">
-          {{!loading ? 'Cancelar' : ''}}
-          <app-loader *ngIf="loading"></app-loader>
-        </button>
-      </div>
-
-      <app-loader color="dark" *ngIf="loadingPage"></app-loader>
     </div>
+    <div class="func-content">
+      <h2>Dados do agendamento</h2>
+
+      <div class="dados">
+        <p><strong>Data:</strong> <br> {{agendamento?.dt_Agendamento | date: 'dd/MM/yy'}}</p>
+        <p><strong>Horário:</strong> <br> {{agendamento?.dt_Agendamento | date: 'HH:mm'}}</p>
+        <p><strong>Atendente:</strong> <br> {{agendamento?.funcionario?.nm_Funcionario}}</p>
+        <p><strong>Contato:</strong> <br> {{agendamento?.funcionario?.cd_Celular}} <br>
+          {{agendamento?.funcionario?.ds_Email}}</p>
+      </div>
+    </div>
+
   </div>
-</div>
+  <div class="delete" *ngIf="!loadingPage">
+    <button type="button" class="delete" (click)="openAlertModal()">
+      {{!loading ? 'Cancelar' : ''}}
+      <app-loader *ngIf="loading"></app-loader>
+    </button>
+  </div>
+
+  <app-loader color="dark" *ngIf="loadingPage"></app-loader>
+</app-card-skeleton>
 
 <app-alert-modal title="Atenção!" (actionClicked)="onDelete()">
   <p>
