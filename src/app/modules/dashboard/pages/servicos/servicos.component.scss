@@ -42,9 +42,15 @@
   }
 
   &__body {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+
+      @include mq(lg) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
     .loader {
       margin-top: 32px;
     }

@@ -9,7 +9,9 @@
 
   <div class="servicos__body">
 
-    <app-card-servicos *ngFor="let servico of servicos;" [servico]="servico" [role]="role"></app-card-servicos>
+    <div class="grid">
+      <app-card-servicos *ngFor="let servico of servicos;" [servico]="servico" [role]="role"></app-card-servicos>
+    </div>
 
     <div class="loader" *ngIf="loading">
       <app-loader></app-loader>

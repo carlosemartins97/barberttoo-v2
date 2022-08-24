@@ -12,6 +12,6 @@ export class FuncionariosService {
 
   getFuncionarios() {
 
-    return this.http.get<AtendenteInterface[]>(`${environment.baseUrl}/funcionario`).toPromise();
+    return this.http.get<AtendenteInterface[]>(`${environment.baseUrl}/funcionario/lista`).toPromise();
   }
 }

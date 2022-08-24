@@ -15,13 +15,11 @@
 
   &__header {
     display: flex;
-    align-items: flex-start;
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
 
     @include mq(lg) {
-      flex-direction: row;
-      align-items: center;
     }
 
     h2 {
@@ -39,10 +37,6 @@
   }
 
   &__details {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-
     @include mq(lg) {
       display: block;
       width: auto;
