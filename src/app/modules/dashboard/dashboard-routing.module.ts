@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from 'src/app/core/guards/admin/admin.guard';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { FuncionarioGuard } from 'src/app/core/guards/funcionario/funcionario.guard';
 
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: () => import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
+    redirectTo: 'agendamento'
   },
   {
     path: 'agendamento',
     loadChildren: () => import('./pages/agendamento/agendamento.module').then((m) => m.AgendamentoModule),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
+    canLoad: [FuncionarioGuard],
   },
   {
     path: 'servicos',

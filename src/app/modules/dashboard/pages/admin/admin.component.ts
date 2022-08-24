@@ -11,6 +11,7 @@ export class AdminComponent implements OnInit {
     { name: 'Criar/editar serviços', path: 'servicos' },
     { name: 'Criar/editar funcionários', path: '/' },
     { name: 'Realizar agendamento manual', path: '/' },
+    { name: 'Ir para Dashboard', path: '../dashboard' },
   ]
 
   constructor() {
