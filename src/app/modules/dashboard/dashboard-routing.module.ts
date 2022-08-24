@@ -1,45 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from 'src/app/core/guards/admin/admin.guard';
-import { AdminComponent } from './pages/admin/admin.component';
-import { AgendamentoComponent } from './pages/agendamento/agendamento.component';
-import { CreateAgendamentoComponent } from './pages/agendamento/subpages/create-agendamento/create-agendamento.component';
-import { DetailsAgendamentoComponent } from './pages/agendamento/subpages/details-agendamento/details-agendamento.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { FuncionariosComponent } from './pages/funcionarios/funcionarios.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { ServicosComponent } from './pages/servicos/servicos.component';
 
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: DashboardComponent
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {
     path: 'agendamento',
-    component: AgendamentoComponent,
-  },
-  {
-    path: 'agendamento/create',
-    component: CreateAgendamentoComponent
-  },
-  {
-    path: 'agendamento/:id',
-    component: DetailsAgendamentoComponent
+    loadChildren: () => import('./pages/agendamento/agendamento.module').then((m) => m.AgendamentoModule),
   },
   {
     path: 'servicos',
-    component: ServicosComponent
+    loadChildren: () => import('./pages/servicos/servicos.module').then((m) => m.ServicosModule),
   },
   {
     path: 'funcionarios',
-    component: FuncionariosComponent
+    loadChildren: () => import('./pages/funcionarios/funcionarios.module').then((m) => m.FuncionariosModule),
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    loadChildren: () => import('./pages/profile/profile.module').then((m) => m.ProfileModule),
   },
   {
     path: 'admin',

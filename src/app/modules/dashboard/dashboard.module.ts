@@ -9,26 +9,13 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
-import { CreateAgendamentoComponent } from './pages/agendamento/subpages/create-agendamento/create-agendamento.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CardAgendamentoComponent } from './pages/agendamento/components/card-agendamento/card-agendamento.component';
-import { DetailsAgendamentoComponent } from './pages/agendamento/subpages/details-agendamento/details-agendamento.component';
-import { CardServicosComponent } from './pages/servicos/components/card-servicos/card-servicos.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @NgModule({
   declarations: [
-    DashboardComponent,
-    AgendamentoComponent,
-    FuncionariosComponent,
-    ServicosComponent,
-    ProfileComponent,
-    CreateAgendamentoComponent,
-    CardAgendamentoComponent,
-    DetailsAgendamentoComponent,
-    CardServicosComponent,
   ],
   imports: [
     CommonModule,
