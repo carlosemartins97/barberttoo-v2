@@ -13,11 +13,14 @@ export class AgendamentoComponent implements OnInit {
 
   agendamentos: Agendamento[] = [];
   loading: boolean = false;
+  role: string;
 
   //icons
   faCalendarPlus = faCalendarPlus
 
-  constructor(private agendamentoService: AgendamentoService, private userService: UserService) { }
+  constructor(private agendamentoService: AgendamentoService, private userService: UserService) {
+    this.role = this.userService.retornaUserRole();
+  }
 
 
 

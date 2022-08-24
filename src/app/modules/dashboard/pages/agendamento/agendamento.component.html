@@ -8,7 +8,7 @@
       <p *ngIf="agendamentos.length === 0 && !loading">Parece que você não possui nenhum agendamento ativo no momento.
         Que tal realizar um serviço conosco?</p>
     </div>
-    <div>
+    <div *ngIf="role === 'ROLE_CLIENTE'">
       <a class="agendamento__novo" [routerLink]="['create']" aria-label="novo agendamento">
         <fa-icon [icon]="faCalendarPlus" [fixedWidth]="true"></fa-icon> Agendamento
       </a>
