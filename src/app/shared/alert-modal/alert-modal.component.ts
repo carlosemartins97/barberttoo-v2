@@ -14,6 +14,8 @@ export class AlertModalComponent implements OnInit {
   @ViewChild('content', { read: TemplateRef }) content: TemplateRef<any>;
   @Input() title?: string;
   @Input() text?: string;
+  @Input() actionText?: string = 'Excluir';
+  @Input() color?: string = 'red';
   @Output() actionClicked = new EventEmitter();
 
 

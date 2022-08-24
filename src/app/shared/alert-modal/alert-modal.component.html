@@ -8,6 +8,6 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="fechar botao" (click)="modal.close('Save click')">Fechar</button>
-    <button type="button" class="delete botao" (click)="action()">Excluir</button>
+    <button type="button" class="{{color}} botao" (click)="action()">{{actionText}}</button>
   </div>
 </ng-template>

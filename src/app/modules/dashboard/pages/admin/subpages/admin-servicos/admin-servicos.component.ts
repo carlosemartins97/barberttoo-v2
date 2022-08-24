@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CrudService } from 'src/app/core/models/service.model';
 import { ServicosService } from '../../../servicos/services/servicos.service';
 
@@ -13,8 +12,7 @@ export class AdminServicosComponent implements OnInit {
   loading: boolean = false;
   servicos: CrudService[] = [];
 
-  faPen = faPen;
-  faTrash = faTrash;
+
 
   constructor(private servicosService: ServicosService) { }
 

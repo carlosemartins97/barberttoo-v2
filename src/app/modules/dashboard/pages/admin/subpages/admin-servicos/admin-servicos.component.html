@@ -11,21 +11,8 @@
   <div class="servicos__body">
 
     <ul *ngIf="servicos.length > 0 && !loading">
-      <li *ngFor="let servico of servicos;">
-        <div class="content">
-          <p>Nome: <span>{{servico.nm_servico}}</span></p>
-          <p>Descrição: <span>{{servico.ds_servico}}</span></p>
-          <p>Preço: <span>R$ {{servico.vl_preco}}</span></p>
-        </div>
-        <div class="edit">
-          <button class="editar">
-            <fa-icon [icon]="faPen" [fixedWidth]="true"></fa-icon>
-          </button>
-          <button class="deletar">
-            <fa-icon [icon]="faTrash" [fixedWidth]="true"></fa-icon>
-          </button>
-        </div>
-      </li>
+      <app-card-admin-servicos *ngFor="let servico of servicos;" [servico]="servico" (deletedClicked)="getServicos()">
+      </app-card-admin-servicos>
     </ul>
 
 

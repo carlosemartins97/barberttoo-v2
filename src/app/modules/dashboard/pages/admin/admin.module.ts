@@ -5,17 +5,21 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AdminServicosComponent } from './subpages/admin-servicos/admin-servicos.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CardAdminServicosComponent } from './subpages/admin-servicos/components/card-admin-servicos/card-admin-servicos.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     AdminComponent,
-    AdminServicosComponent
+    AdminServicosComponent,
+    CardAdminServicosComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
+    ReactiveFormsModule,
     SharedModule,
     FontAwesomeModule,
   ]

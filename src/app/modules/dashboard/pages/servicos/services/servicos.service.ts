@@ -13,4 +13,16 @@ export class ServicosService {
   getServices() {
     return this.http.get<CrudService[]>(`${environment.baseUrl}/servico`).toPromise();
   }
+
+  getServiceById(id: number) {
+    return this.http.get<CrudService>(`${environment.baseUrl}/servico/${id}`).toPromise();
+  }
+
+  updateService(servico: CrudService) {
+    return this.http.put<any>(`${environment.baseUrl}/servico`, servico).toPromise();
+  }
+
+  deleteService(id: number) {
+    return this.http.delete<any>(`${environment.baseUrl}/servico/${id}`).toPromise();
+  }
 }

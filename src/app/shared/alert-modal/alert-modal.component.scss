@@ -22,8 +22,12 @@
         background: $color-info;
         color: $color-branco;
       }
-      &.delete {
+      &.red {
         background: $color-red;
+        color: $color-branco;
+      }
+      &.amarelo {
+        background: $color-amarelo;
         color: $color-branco;
       }
     }

@@ -1,0 +1,61 @@
+<li>
+  <div class="content">
+    <p>Nome: <span>{{servico.nm_servico}}</span></p>
+    <p>Descrição: <span>{{servico.ds_servico}}</span></p>
+    <p>Preço: <span>R$ {{servico.vl_preco}}</span></p>
+  </div>
+  <div class="edit">
+    <button class="editar" (click)="openEditModal()" title="Editar serviço">
+      <fa-icon [icon]="faPen" [fixedWidth]="true"></fa-icon>
+    </button>
+    <button class="deletar" (click)="openAlertModal()" title="Excluir serviço">
+      <fa-icon [icon]="faTrash" [fixedWidth]="true"></fa-icon>
+    </button>
+  </div>
+</li>
+
+<app-alert-modal [title]="'Atenção!'" (actionClicked)="onDelete()" #delete>
+  <p>
+    Você está prestes a excluir o serviço <strong>{{servico.nm_servico}}</strong>
+    com o valor de
+    <strong>R$ {{servico.vl_preco}}</strong>
+  </p>
+</app-alert-modal>
+
+<app-alert-modal title="Editar {{servico.nm_servico}}" actionText="Editar" color="amarelo" (actionClicked)="onUpdate()"
+  #edit>
+  <form class="form" [formGroup]="form">
+    <div class="label-float">
+      <input type="text" placeholder=" " name="nm_servico" id="nm_servico" formControlName="nm_servico" />
+      <label>Nome:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(form.controls.nm_servico.touched && form.controls.nm_servico.errors )|| (form.controls.nm_servico.errors )">Insira
+          um nome.</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <input type="text" placeholder=" " name="ds_servico" id="ds_servico" formControlName="ds_servico" />
+      <label>Descrição:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(form.controls.ds_servico.touched && form.controls.ds_servico.errors )|| (form.controls.ds_servico.errors )">Insira
+          uma descrição.</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <input type="number" placeholder=" " name="vl_preco" id="vl_preco" formControlName="vl_preco" />
+      <label>Preço:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(form.controls.vl_preco.touched && form.controls.vl_preco.errors )|| (form.controls.vl_preco.errors )">Insira
+          um valor.</span>
+      </div>
+    </div>
+  </form>
+</app-alert-modal>
