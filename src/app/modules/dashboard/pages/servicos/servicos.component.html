@@ -3,7 +3,9 @@
     <div>
       <h1>Serviços</h1>
 
-      <p>Veja todos os serviços que estamos oferecendo no momento. </p>
+      <p *ngIf="servicos.length > 0 && !loading">Veja todos os serviços que estamos oferecendo no momento. </p>
+      <p *ngIf="servicos.length === 0 && !loading">Infelizmente não existe nenhum serviço cadastrado no momento.
+        Por favor, volte mais tarde. </p>
     </div>
   </div>
 

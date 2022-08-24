@@ -6,7 +6,7 @@
       <p *ngIf="agendamentos.length > 0 && !loading">Aqui você consegue visualizar todos os seus agendamentos ativos ou
         realizar um novo agendamento.</p>
       <p *ngIf="agendamentos.length === 0 && !loading">Parece que você não possui nenhum agendamento ativo no momento.
-        Que tal realizar um serviço conosco?</p>
+        Que tal realizar um agendamento conosco?</p>
     </div>
     <div *ngIf="role === 'ROLE_CLIENTE'">
       <a class="agendamento__novo" [routerLink]="['create']" aria-label="novo agendamento">
