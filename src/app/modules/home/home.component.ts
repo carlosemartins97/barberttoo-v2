@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
       this.auth.login(this.loginForm.value).subscribe({
         next: res => {
           console.log(res);
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['app']);
           this.loading = false
         },
         error: error => {

@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
           this.auth.login(login).subscribe({
             next: response => {
               this.loading = false;
-              this.router.navigate(['dashboard']);
+              this.router.navigate(['app']);
             },
             error: err => {
               console.log(err)

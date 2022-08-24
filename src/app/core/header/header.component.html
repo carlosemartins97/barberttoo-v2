@@ -7,7 +7,7 @@
     <div class="username">
       <span *ngIf="!loading">Olá, {{name}}!</span>
       <app-loader color='dark' *ngIf="loading"></app-loader>
-      <a routerLink="dashboard/profile">Editar perfil</a>
+      <a routerLink="app/profile">Editar perfil</a>
     </div>
 
 
@@ -67,7 +67,7 @@
       </li>
     </ul>
     <div class="user">
-      <a routerLink="dashboard/profile">Editar perfil</a>
+      <a routerLink="app/profile">Editar perfil</a>
       <button class="logout" (click)="logout()">
         Logout
       </button>

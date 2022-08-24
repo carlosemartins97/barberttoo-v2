@@ -25,13 +25,13 @@ export class HeaderComponent implements OnInit {
 
 
   navHeader: HeaderItem[] = [
-    { name: 'Agendamento', icon: faCalendarDays, link: 'dashboard/agendamento' },
-    { name: 'Serviços', icon: faBagShopping, link: 'dashboard/servicos' },
-    { name: 'Funcionários', icon: faUsers, link: 'dashboard/funcionarios' },
+    { name: 'Agendamento', icon: faCalendarDays, link: 'app/agendamento' },
+    { name: 'Serviços', icon: faBagShopping, link: 'app/servicos' },
+    { name: 'Funcionários', icon: faUsers, link: 'app/funcionarios' },
   ]
 
   navHeaderAdmin: HeaderItem[] = [
-    { name: 'Administração', icon: faHammer, link: 'dashboard/admin' },
+    { name: 'Administração', icon: faHammer, link: 'app/admin' },
   ]
 
   constructor(private router: Router, private userService: UserService, private clienteService: ClienteService, private route: ActivatedRoute) {
