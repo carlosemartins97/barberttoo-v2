@@ -1,13 +1,6 @@
 @import "../../../../../assets/styles/dependencies";
 
 .profile {
-  .back {
-    ::ng-deep fa-icon {
-      margin-right: 8px;
-      color: $color-amarelo;
-    }
-  }
-
   form {
     width: 100%;
     display: grid;
