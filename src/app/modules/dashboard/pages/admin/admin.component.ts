@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
   selector: 'app-admin',
@@ -8,6 +6,12 @@ import { UserService } from 'src/app/core/services/user/user.service';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+
+  adminLinks = [
+    { name: 'Criar/editar serviços', path: '/' },
+    { name: 'Criar/editar funcionários', path: '/' },
+    { name: 'Realizar agendamento manual', path: '/' },
+  ]
 
   constructor() {
   }

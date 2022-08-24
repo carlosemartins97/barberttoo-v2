@@ -62,7 +62,19 @@ h6 {
 }
 
 h1 {
-  font-size: 30px !important;
+  font-size: 24px;
+
+  @include mq(lg) {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-size: 20px;
+
+  @include mq(lg) {
+    font-size: 24px;
+  }
 }
 
 ul {

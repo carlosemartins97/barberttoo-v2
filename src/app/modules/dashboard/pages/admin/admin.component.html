@@ -2,9 +2,18 @@
   <div class="admin__header">
     <h1>Administração</h1>
 
-    <p>Esta é uma área apenas para manutenção e administração do sistema. Usuários comuns não possuem acesso.</p>
+    <p>Esta é uma área apenas para manutenção e administração do sistema.</p>
+    <p>Usuários comuns não possuem acesso.</p>
   </div>
   <div class="admin__body">
+    <h2>O que deseja fazer?</h2>
 
+    <ul>
+      <li *ngFor="let admin of adminLinks;">
+        <a [routerLink]="[admin.path]">
+          {{admin.name}}
+        </a>
+      </li>
+    </ul>
   </div>
 </div>
