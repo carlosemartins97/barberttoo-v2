@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faBagShopping, faBars, faCalendarDays, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faBars, faCalendarDays, faHammer, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { ClienteService } from '../services/cliente/cliente.service';
 import { UserService } from '../services/user/user.service';
 import { HeaderItem } from './header.models';
@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   name: string;
   loading: boolean = false;
+  role: string;
 
 
   navHeader: HeaderItem[] = [
@@ -29,7 +30,13 @@ export class HeaderComponent implements OnInit {
     { name: 'Funcionários', icon: faUsers, link: 'dashboard/funcionarios' },
   ]
 
-  constructor(private router: Router, private userService: UserService, private clienteService: ClienteService, private route: ActivatedRoute) { }
+  navHeaderAdmin: HeaderItem[] = [
+    { name: 'Administração', icon: faHammer, link: 'dashboard/admin' },
+  ]
+
+  constructor(private router: Router, private userService: UserService, private clienteService: ClienteService, private route: ActivatedRoute) {
+    this.role = this.userService.retornaUserRole();
+  }
 
   ngOnInit(): void {
     this.fetchClienteData();
@@ -53,8 +60,8 @@ export class HeaderComponent implements OnInit {
       console.log(err);
       this.name = '-'
       this.loading = false;
-      this.userService.logout();
-      this.router.navigate(['']);
+      id !== '0' && this.userService.logout();
+      ;
     })
   }
 

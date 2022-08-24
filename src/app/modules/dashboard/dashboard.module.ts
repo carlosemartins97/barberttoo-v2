@@ -28,7 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CreateAgendamentoComponent,
     CardAgendamentoComponent,
     DetailsAgendamentoComponent,
-    CardServicosComponent
+    CardServicosComponent,
   ],
   imports: [
     CommonModule,

@@ -18,6 +18,12 @@
           {{item.name}}
         </a>
       </li>
+      <li class="header__menu__item" *ngFor="let admin of navHeaderAdmin;">
+        <a [routerLink]="admin.link" *ngIf="role === 'ROLE_ADM'">
+          <fa-icon [icon]="admin.icon" [fixedWidth]="true"></fa-icon>
+          {{admin.name}}
+        </a>
+      </li>
     </ul>
   </nav>
 
@@ -51,6 +57,12 @@
         <a [routerLink]="item.link" (click)="collapse.toggle()">
           <fa-icon [icon]="item.icon" [fixedWidth]="true"></fa-icon>
           {{item.name}}
+        </a>
+      </li>
+      <li *ngFor="let admin of navHeaderAdmin;">
+        <a [routerLink]="admin.link" (click)="collapse.toggle()">
+          <fa-icon [icon]="admin.icon" [fixedWidth]="true"></fa-icon>
+          {{admin.name}}
         </a>
       </li>
     </ul>

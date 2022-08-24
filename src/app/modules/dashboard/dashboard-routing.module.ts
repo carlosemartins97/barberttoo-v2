@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from 'src/app/core/guards/admin/admin.guard';
+import { AdminComponent } from './pages/admin/admin.component';
 import { AgendamentoComponent } from './pages/agendamento/agendamento.component';
 import { CreateAgendamentoComponent } from './pages/agendamento/subpages/create-agendamento/create-agendamento.component';
 import { DetailsAgendamentoComponent } from './pages/agendamento/subpages/details-agendamento/details-agendamento.component';
@@ -38,7 +40,12 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
-  }
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./pages/admin/admin.module').then((m) => m.AdminModule),
+    canLoad: [AdminGuard]
+  },
 ];
 
 @NgModule({
