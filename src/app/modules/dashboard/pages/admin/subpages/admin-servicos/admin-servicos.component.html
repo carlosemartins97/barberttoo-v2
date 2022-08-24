@@ -1,0 +1,36 @@
+<div class="servicos">
+  <div class="servicos__header">
+    <div>
+      <h1>Criar/Editar serviços</h1>
+
+      <p *ngIf="servicos.length > 0 && !loading">Listagem de todos os serviços disponíveis para os usuários: </p>
+      <p *ngIf="servicos.length === 0 && !loading">Nenhum serviço cadastrado no momento.</p>
+    </div>
+  </div>
+
+  <div class="servicos__body">
+
+    <ul *ngIf="servicos.length > 0 && !loading">
+      <li *ngFor="let servico of servicos;">
+        <div class="content">
+          <p>Nome: <span>{{servico.nm_servico}}</span></p>
+          <p>Descrição: <span>{{servico.ds_servico}}</span></p>
+          <p>Preço: <span>R$ {{servico.vl_preco}}</span></p>
+        </div>
+        <div class="edit">
+          <button class="editar">
+            <fa-icon [icon]="faPen" [fixedWidth]="true"></fa-icon>
+          </button>
+          <button class="deletar">
+            <fa-icon [icon]="faTrash" [fixedWidth]="true"></fa-icon>
+          </button>
+        </div>
+      </li>
+    </ul>
+
+
+    <div class="loader" *ngIf="loading">
+      <app-loader></app-loader>
+    </div>
+  </div>
+</div>

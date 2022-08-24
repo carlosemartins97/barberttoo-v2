@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
 
   adminLinks = [
-    { name: 'Criar/editar serviços', path: '/' },
+    { name: 'Criar/editar serviços', path: 'servicos' },
     { name: 'Criar/editar funcionários', path: '/' },
     { name: 'Realizar agendamento manual', path: '/' },
   ]

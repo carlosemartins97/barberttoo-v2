@@ -1,0 +1,122 @@
+@import "../../../../../../../assets/styles/dependencies";
+
+.servicos {
+  padding: 16px;
+  &__header {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include mq(lg) {
+      align-items: center;
+      flex-direction: row;
+    }
+    h1 {
+      color: $color-amarelo;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__novo {
+    margin-top: 24px;
+    color: $color-branco;
+    background: $color-info;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mq(lg) {
+      padding: 12px;
+    }
+
+    ::ng-deep fa-icon {
+      font-size: 21px;
+      margin-right: 8px;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .loader {
+      margin-top: 32px;
+    }
+
+    ul {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+
+      @include mq(lg) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      li {
+        background: $color-branco;
+        color: $color-dark;
+        border-radius: 8px;
+        border: 2px solid $color-amarelo;
+        padding: 8px;
+        display: flex;
+        gap: 8px;
+        justify-content: space-between;
+        .content {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          width: 100%;
+
+          p {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            font-weight: bold;
+            color: $color-amarelo;
+
+            span {
+              color: $color-dark;
+              font-weight: 400;
+            }
+          }
+        }
+
+        .edit {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          @include mq(lg) {
+            flex-direction: row;
+          }
+          button {
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+
+            &.editar {
+              background: $color-info;
+            }
+
+            &.deletar {
+              background: $color-red;
+            }
+
+            ::ng-deep fa-icon {
+              color: $color-branco;
+            }
+          }
+        }
+      }
+    }
+  }
+}
