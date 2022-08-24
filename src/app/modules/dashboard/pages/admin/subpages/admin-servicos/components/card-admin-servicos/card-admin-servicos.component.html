@@ -2,7 +2,7 @@
   <div class="content">
     <p>Nome: <span>{{servico.nm_servico}}</span></p>
     <p>Descrição: <span>{{servico.ds_servico}}</span></p>
-    <p>Preço: <span>R$ {{servico.vl_preco}}</span></p>
+    <p>Preço: <span>R$ {{servico.vl_preco.toFixed(2)}}</span></p>
   </div>
   <div class="edit">
     <button class="editar" (click)="openEditModal()" title="Editar serviço">

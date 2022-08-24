@@ -6,6 +6,11 @@
       <p *ngIf="servicos.length > 0 && !loading">Listagem de todos os serviços disponíveis para os usuários: </p>
       <p *ngIf="servicos.length === 0 && !loading">Nenhum serviço cadastrado no momento.</p>
     </div>
+    <div>
+      <button class="servicos__novo" aria-label="novo serviço" (click)="openCreateModal()">
+        <fa-icon [icon]="faPlus" [fixedWidth]="true"></fa-icon> Serviço
+      </button>
+    </div>
   </div>
 
   <div class="servicos__body">
@@ -21,3 +26,40 @@
     </div>
   </div>
 </div>
+
+<app-alert-modal [title]="'Novo serviço'" actionText="Criar" color="amarelo" (actionClicked)="onCreate()" #edit>
+  <form class="form" [formGroup]="form">
+    <div class="label-float">
+      <input type="text" placeholder=" " name="nm_servico" id="nm_servico" formControlName="nm_servico" />
+      <label>Nome:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(form.controls.nm_servico.touched && form.controls.nm_servico.errors )|| (form.controls.nm_servico.errors )">Insira
+          um nome.</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <input type="text" placeholder=" " name="ds_servico" id="ds_servico" formControlName="ds_servico" />
+      <label>Descrição:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(form.controls.ds_servico.touched && form.controls.ds_servico.errors )|| (form.controls.ds_servico.errors )">Insira
+          uma descrição.</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <input type="number" placeholder=" " name="vl_preco" id="vl_preco" formControlName="vl_preco" />
+      <label>Preço:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(form.controls.vl_preco.touched && form.controls.vl_preco.errors )|| (form.controls.vl_preco.errors )">Insira
+          um valor.</span>
+      </div>
+    </div>
+  </form>
+</app-alert-modal>

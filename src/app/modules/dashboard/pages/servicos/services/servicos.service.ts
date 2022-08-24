@@ -22,6 +22,10 @@ export class ServicosService {
     return this.http.put<any>(`${environment.baseUrl}/servico`, servico).toPromise();
   }
 
+  createService(payload: CrudService) {
+    return this.http.post<CrudService>(`${environment.baseUrl}/servico/create`, payload).toPromise();
+  }
+
   deleteService(id: number) {
     return this.http.delete<any>(`${environment.baseUrl}/servico/${id}`).toPromise();
   }

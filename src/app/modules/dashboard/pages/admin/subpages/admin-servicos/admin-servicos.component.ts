@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CrudService } from 'src/app/core/models/service.model';
+import { AlertModalComponent } from 'src/app/shared/alert-modal/alert-modal.component';
 import { ServicosService } from '../../../servicos/services/servicos.service';
 
 @Component({
@@ -9,15 +13,27 @@ import { ServicosService } from '../../../servicos/services/servicos.service';
 })
 export class AdminServicosComponent implements OnInit {
 
+  @ViewChild(AlertModalComponent) createModal: AlertModalComponent;
   loading: boolean = false;
+  loadingCreate: boolean = false;
   servicos: CrudService[] = [];
 
+  faPlus = faPlus;
 
+  form: FormGroup = new FormGroup({
+    nm_servico: new FormControl('', [Validators.required]),
+    ds_servico: new FormControl('', [Validators.required]),
+    vl_preco: new FormControl('', [Validators.required]),
+  })
 
-  constructor(private servicosService: ServicosService) { }
+  constructor(private servicosService: ServicosService, private modalConfig: NgbModal) { }
 
   ngOnInit(): void {
     this.getServicos();
+  }
+
+  openCreateModal() {
+    this.createModal.open();
   }
 
   getServicos() {
@@ -30,6 +46,22 @@ export class AdminServicosComponent implements OnInit {
       console.log(error);
       this.loading = false;
     })
+  }
+
+  onCreate() {
+    if (this.form.valid) {
+      this.loadingCreate = true;
+      this.servicosService.createService(this.form.value).then(res => {
+        this.loadingCreate = false;
+        this.modalConfig.dismissAll();
+        this.getServicos();
+      }).catch(error => {
+        console.log(error);
+        this.loadingCreate = false;
+        alert('Erro! Não foi possível completar sua requisição. Tente novamente mais tarde')
+        this.modalConfig.dismissAll();
+      })
+    }
   }
 
 }
