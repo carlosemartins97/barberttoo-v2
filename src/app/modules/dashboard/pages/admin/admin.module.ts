@@ -7,6 +7,7 @@ import { AdminServicosComponent } from './subpages/admin-servicos/admin-servicos
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardAdminServicosComponent } from './subpages/admin-servicos/components/card-admin-servicos/card-admin-servicos.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdminFuncionariosComponent } from './subpages/admin-funcionarios/admin-funcionarios.component';
 
 
 
@@ -14,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AdminComponent,
     AdminServicosComponent,
-    CardAdminServicosComponent
+    CardAdminServicosComponent,
+    AdminFuncionariosComponent
   ],
   imports: [
     CommonModule,

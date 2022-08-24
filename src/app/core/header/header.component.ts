@@ -76,6 +76,7 @@ export class HeaderComponent implements OnInit {
       console.log(err);
       this.name = '-'
       this.loading = false;
+      id !== 0 && this.userService.logout();
       ;
     })
   }
