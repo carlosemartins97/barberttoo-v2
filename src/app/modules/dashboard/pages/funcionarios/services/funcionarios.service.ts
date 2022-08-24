@@ -11,7 +11,11 @@ export class FuncionariosService {
   constructor(private http: HttpClient) { }
 
   getFuncionarios() {
-
     return this.http.get<AtendenteInterface[]>(`${environment.baseUrl}/funcionario/lista`).toPromise();
   }
+
+  getFuncionarioById(id: number) {
+    return this.http.get<AtendenteInterface>(`${environment.baseUrl}/funcionario/${id}`).toPromise();
+  }
+
 }
