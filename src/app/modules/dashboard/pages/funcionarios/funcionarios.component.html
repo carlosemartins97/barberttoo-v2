@@ -1,1 +1,23 @@
-<p>funcionarios works!</p>
+<div class="funcionarios">
+  <div class="funcionarios__header">
+    <div>
+      <h1>Funcionários</h1>
+
+      <p *ngIf="funcionarios.length > 0 && !loading">Lista de todos os funcionários presentes do estabelecimento.
+        Qualquer dúvida, sinta-se a vontade para entrar em
+        contato diretamente com eles.</p>
+      <p *ngIf="funcionarios.length === 0 && !loading">Parece que você não possui nenhum funcionarios ativo no momento.
+        Que tal realizar um serviço conosco?</p>
+    </div>
+  </div>
+
+  <div class="funcionarios__body">
+    <div class="grid">
+      <app-card-funcionarios *ngFor="let func of funcionarios" [funcionario]="func"></app-card-funcionarios>
+    </div>
+
+    <div class="loader" *ngIf="loading">
+      <app-loader></app-loader>
+    </div>
+  </div>
+</div>

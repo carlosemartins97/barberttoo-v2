@@ -1,0 +1,19 @@
+<div class="card-funcionarios">
+  <button type="button" class="card-funcionarios__collapse" (click)="collapse.toggle()"
+    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+    <div class="card-funcionarios__header">
+      <h2>{{funcionario.nm_Funcionario}}</h2>
+
+      <div class="card-funcionarios__details">
+        <fa-icon [icon]="faAngleDown" [fixedWidth]="true" [ngClass]="{'open': !isCollapsed}"></fa-icon>
+      </div>
+    </div>
+  </button>
+  <div class="card-funcionarios__body" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+    <div>
+      <h3>Contato</h3>
+      <p>{{funcionario.ds_Email}}</p>
+      <p>{{funcionario.cd_Celular}}</p>
+    </div>
+  </div>
+</div>

@@ -7,12 +7,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxMaskModule } from 'ngx-mask';
+import { CardFuncionariosComponent } from './components/card-funcionarios/card-funcionarios.component';
 
 
 
 @NgModule({
   declarations: [
-    FuncionariosComponent
+    FuncionariosComponent,
+    CardFuncionariosComponent
   ],
   imports: [
     CommonModule,

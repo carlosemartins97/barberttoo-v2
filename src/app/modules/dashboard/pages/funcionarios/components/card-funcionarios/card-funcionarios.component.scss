@@ -1,0 +1,80 @@
+@import "../../../../../../../assets/styles/dependencies";
+
+.card-funcionarios {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid $color-amarelo;
+  padding: 16px;
+  background: $color-branco;
+
+  &__collapse {
+    width: 100%;
+    border: none;
+    background: none;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include mq(lg) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin: 0;
+      color: $color-amarelo;
+      font-weight: 700;
+      margin-bottom: 8px;
+
+      @include mq(lg) {
+        font-size: 18px;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @include mq(lg) {
+      display: block;
+      width: auto;
+    }
+
+    ::ng-deep fa-icon {
+      > svg {
+        transition: all 0.3s;
+      }
+
+      &.open {
+        > svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__body {
+    color: $color-dark;
+    padding-top: 8px;
+
+    h3 {
+      font-size: 14px;
+      line-height: 18px;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}
