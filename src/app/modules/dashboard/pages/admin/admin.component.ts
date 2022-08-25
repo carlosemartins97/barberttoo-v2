@@ -9,7 +9,7 @@ export class AdminComponent implements OnInit {
 
   adminLinks = [
     { name: 'Criar/editar serviços', path: 'servicos' },
-    { name: 'Criar/editar funcionários', path: 'funcionarios' },
+    { name: 'Criar/excluir funcionários', path: 'funcionarios' },
     { name: 'Realizar agendamento manual', path: '../' },
     { name: 'Ir para Dashboard', path: '../dashboard' },
   ]

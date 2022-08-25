@@ -8,6 +8,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardAdminServicosComponent } from './subpages/admin-servicos/components/card-admin-servicos/card-admin-servicos.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminFuncionariosComponent } from './subpages/admin-funcionarios/admin-funcionarios.component';
+import { CardAdminFuncionariosComponent } from './subpages/admin-funcionarios/components/card-admin-funcionarios/card-admin-funcionarios.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -16,12 +18,14 @@ import { AdminFuncionariosComponent } from './subpages/admin-funcionarios/admin-
     AdminComponent,
     AdminServicosComponent,
     CardAdminServicosComponent,
-    AdminFuncionariosComponent
+    AdminFuncionariosComponent,
+    CardAdminFuncionariosComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
+    NgbModule,
     SharedModule,
     FontAwesomeModule,
   ]

@@ -1,0 +1,49 @@
+<div class="card-admin-funcionarios">
+  <button type="button" class="card-admin-funcionarios__collapse" (click)="collapse.toggle()"
+    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+    <div class="card-admin-funcionarios__header">
+      <h2>{{funcionario.nm_Funcionario}}</h2>
+
+      <div class="card-admin-funcionarios__details">
+        <fa-icon [icon]="faAngleDown" [fixedWidth]="true" [ngClass]="{'open': !isCollapsed}"></fa-icon>
+      </div>
+    </div>
+  </button>
+  <div class="card-admin-funcionarios__body" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+    <ul>
+      <li>
+        <h3>Contato</h3>
+        <p>{{funcionario.ds_Email}}</p>
+        <p>{{funcionario.cd_Celular}}</p>
+      </li>
+      <li>
+        <h3>cpf</h3>
+        <p>{{funcionario.cd_Cpf}}</p>
+      </li>
+      <li>
+        <h3>endereço</h3>
+        <p>{{funcionario.ds_Endereco}}</p>
+      </li>
+      <li>
+        <h3>cidade</h3>
+        <p>{{funcionario.ds_Cidade}}</p>
+      </li>
+      <li>
+        <h3>estado</h3>
+        <p>{{funcionario.sg_Uf}}</p>
+      </li>
+      <li>
+        <h3>cep</h3>
+        <p>{{funcionario.cd_Cep}}</p>
+      </li>
+      <li>
+        <h3>autoridade</h3>
+        <p>{{funcionario.authority}}</p>
+      </li>
+      <li>
+        <h3>data de nascimento</h3>
+        <p>{{funcionario.dt_BirthDate | date: 'dd/MM/yyyy'}}</p>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -14,6 +14,10 @@ export class FuncionariosService {
     return this.http.get<AtendenteInterface[]>(`${environment.baseUrl}/funcionario/lista`).toPromise();
   }
 
+  getFuncionariosFull() {
+    return this.http.get<AtendenteInterface[]>(`${environment.baseUrl}/funcionario`).toPromise();
+  }
+
   getFuncionarioById(id: number) {
     return this.http.get<AtendenteInterface>(`${environment.baseUrl}/funcionario/${id}`).toPromise();
   }
