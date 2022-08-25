@@ -45,6 +45,10 @@ export class HeaderComponent implements OnInit {
     this.clienteService.dadosAtualizados.subscribe(res => {
       this.name = res.nm_Cliente;
     })
+
+    this.funcionariosService.dadosAtualizados.subscribe(res => {
+      this.name = res.nm_Funcionario;
+    })
   }
 
   logout() {

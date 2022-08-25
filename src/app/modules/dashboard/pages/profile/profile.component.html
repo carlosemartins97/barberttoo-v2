@@ -1,7 +1,7 @@
 <app-card-skeleton [title]="'Perfil'" class="profile">
   <h2>Edite suas informações abaixo: </h2>
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!loading">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!loading && role === 'ROLE_CLIENTE'">
     <div class="label-float">
       <input type="text" placeholder=" " name="nm_Cliente" id="nm_Cliente" formControlName="nm_Cliente" />
       <label>Nome completo:</label>
@@ -56,6 +56,121 @@
         <span
           *ngIf="(getForm().dt_BirthDate.touched && getForm().dt_BirthDate.errors) || (getForm().dt_BirthDate.errors && submitted)">Insira
           uma data de nascimento.</span>
+      </div>
+    </div>
+
+    <div class="submit">
+      <button>
+        {{!loadingUpdate ? 'Atualizar dados' : ''}}
+        <app-loader *ngIf="loadingUpdate"></app-loader>
+      </button>
+    </div>
+  </form>
+
+  <form [formGroup]="funcForm" (ngSubmit)="onSubmitFunc()" *ngIf="!loading && role !== 'ROLE_CLIENTE'">
+    <div class="label-float">
+      <input type="text" placeholder=" " name="nm_Funcionario" id="nm_Funcionario" formControlName="nm_Funcionario" />
+      <label>Nome completo:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(getFuncForm().nm_Funcionario.touched && getFuncForm().nm_Funcionario.errors) || (getFuncForm().nm_Funcionario.errors && submitted)">Insira
+          um nome completo</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <input type="email" placeholder=" " name="ds_Email" id="ds_Email" formControlName="ds_Email" />
+      <label>E-mail:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(getFuncForm().ds_Email.touched && getFuncForm().ds_Email.errors )|| (getFuncForm().ds_Email.errors && submitted)">Insira
+          um e-mail válido.</span>
+      </div>
+    </div>
+    <div class="label-float">
+      <input type="text" placeholder=" " name="cd_Cpf" id="cd_Cpf" formControlName="cd_Cpf" mask="000.000.000-00"
+        [attr.disabled]="'true'" />
+      <label>CPF:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(getFuncForm().cd_Cpf.touched && getFuncForm().cd_Cpf.errors) || (getFuncForm().cd_Cpf.errors && submitted)">Insira
+          um
+          CPF válido.</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <input type="text" placeholder=" " name="cd_Celular" id="cd_Celular" formControlName="cd_Celular"
+        mask="(00) 00000-0000" />
+      <label>Celular:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(getFuncForm().cd_Celular.touched && getFuncForm().cd_Celular.errors) || (getFuncForm().cd_Celular.errors && submitted)">Insira
+          um celular válido.</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <input type="date" placeholder=" " name="dt_BirthDate" id="dt_BirthDate" formControlName="dt_BirthDate"
+        [attr.disabled]="'true'" />
+      <label>Data de nascimento:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(getFuncForm().dt_BirthDate.touched && getFuncForm().dt_BirthDate.errors) || (getFuncForm().dt_BirthDate.errors && submitted)">Insira
+          uma data de nascimento.</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <input type="text" placeholder=" " name="cd_Cep" id="cd_Cep" formControlName="cd_Cep" />
+      <label>CEP:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(getFuncForm().cd_Cep.touched && getFuncForm().cd_Cep.errors) || (getFuncForm().cd_Cep.errors && submitted)">Insira
+          um
+          CEP válido.</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <input type="text" placeholder=" " name="ds_Cidade" id="ds_Cidade" formControlName="ds_Cidade" />
+      <label>Cidade:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(getFuncForm().ds_Cidade.touched && getFuncForm().ds_Cidade.errors) || (getFuncForm().ds_Cidade.errors && submitted)">Insira
+          uma
+          cidade válida.</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <input type="text" placeholder=" " name="ds_Endereco" id="ds_Endereco" formControlName="ds_Endereco" />
+      <label>Endereço:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(getFuncForm().ds_Endereco.touched && getFuncForm().ds_Endereco.errors) || (getFuncForm().ds_Endereco.errors && submitted)">Insira
+          um
+          endereço válido.</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <input type="text" placeholder=" " name="sg_Uf" id="sg_Uf" formControlName="sg_Uf" />
+      <label>UF:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(getFuncForm().sg_Uf.touched && getFuncForm().sg_Uf.errors) || (getFuncForm().sg_Uf.errors && submitted)">Insira
+          um
+          UF válido.</span>
       </div>
     </div>
 
