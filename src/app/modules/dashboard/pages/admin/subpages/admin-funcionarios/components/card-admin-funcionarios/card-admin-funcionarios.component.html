@@ -1,14 +1,21 @@
 <div class="card-admin-funcionarios">
-  <button type="button" class="card-admin-funcionarios__collapse" (click)="collapse.toggle()"
-    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-    <div class="card-admin-funcionarios__header">
-      <h2>{{funcionario.nm_Funcionario}}</h2>
+  <div class="card-admin-funcionarios__headBlock">
+    <button type="button" class="card-admin-funcionarios__collapse" (click)="collapse.toggle()"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+      <div class="card-admin-funcionarios__header">
+        <h2>{{funcionario.nm_Funcionario}}</h2>
 
-      <div class="card-admin-funcionarios__details">
-        <fa-icon [icon]="faAngleDown" [fixedWidth]="true" [ngClass]="{'open': !isCollapsed}"></fa-icon>
+        <div class="card-admin-funcionarios__details">
+          <fa-icon [icon]="faAngleDown" [fixedWidth]="true" [ngClass]="{'open': !isCollapsed}"></fa-icon>
+        </div>
       </div>
+    </button>
+    <div class="card-admin-funcionarios__deleteBlock">
+      <button class="delete" (click)="openAlertModal()">
+        <fa-icon [icon]="faTrash" [fixedWidth]="true" [ngClass]="{'open': !isCollapsed}"></fa-icon>
+      </button>
     </div>
-  </button>
+  </div>
   <div class="card-admin-funcionarios__body" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
     <ul>
       <li>
@@ -47,3 +54,9 @@
     </ul>
   </div>
 </div>
+
+<app-alert-modal title="Atenção!" (actionClicked)="onDelete()">
+  <p>
+    Você está prestes a excluir o funcionário <strong>{{funcionario?.nm_Funcionario}}</strong>. Deseja prosseguir?
+  </p>
+</app-alert-modal>

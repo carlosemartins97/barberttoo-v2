@@ -7,6 +7,26 @@
   padding: 16px;
   background: $color-branco;
 
+  &__headBlock {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__deleteBlock {
+    button {
+      background: $color-red;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+
+      ::ng-deep fa-icon {
+        font-size: 14px;
+        color: $color-branco;
+      }
+    }
+  }
+
   &__collapse {
     width: 100%;
     border: none;

@@ -60,3 +60,90 @@
     }
   }
 }
+
+::ng-deep .modal-create-func {
+  .modal-dialog {
+    @include mq(md) {
+      max-width: 720px;
+    }
+    @include mq(lg) {
+      max-width: 1080px;
+    }
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+
+  @include mq(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .label-float {
+    position: relative;
+    height: 56px;
+    background: $color-dark;
+    border-radius: 4px;
+    box-shadow: 1px 4px 10px #0006;
+
+    .error-msg {
+      display: block;
+      padding-left: 16px;
+      font-size: 12px;
+      color: $color-red;
+      font-weight: 400;
+      margin-top: 3px;
+    }
+  }
+
+  .label-float input {
+    padding: 6px 16px 0;
+    color: $color-branco;
+    border: 0;
+    width: 100%;
+    outline: none;
+    min-width: 180px;
+    font-size: 16px;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -webkit-appearance: none;
+    border-radius: 0;
+    height: 100%;
+    background: transparent;
+
+    &[disabled] {
+      background: $color-escuro;
+    }
+  }
+
+  .label-float input:focus {
+    border-bottom: 2px solid $color-amarelo;
+  }
+
+  .label-float input::placeholder {
+    color: transparent;
+  }
+
+  .label-float label {
+    padding-left: 16px;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 18px;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    color: $color-branco;
+  }
+
+  .label-float input:focus + label,
+  .label-float input:not(:placeholder-shown) + label {
+    font-size: 12px;
+    margin-top: 6px;
+    color: $color-amarelo;
+  }
+}

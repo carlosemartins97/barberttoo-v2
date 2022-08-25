@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AdminFuncionariosComponent } from './subpages/admin-funcionarios/admin-funcionarios.component';
 import { CardAdminFuncionariosComponent } from './subpages/admin-funcionarios/components/card-admin-funcionarios/card-admin-funcionarios.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
@@ -26,6 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AdminRoutingModule,
     ReactiveFormsModule,
     NgbModule,
+    NgxMaskModule.forChild(),
     SharedModule,
     FontAwesomeModule,
   ]
