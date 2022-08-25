@@ -6,7 +6,9 @@ import { AtendenteInterface } from 'src/app/core/models/funcionario.model';
 import { ClienteService } from 'src/app/core/services/cliente/cliente.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { InfoModalComponent } from 'src/app/shared/info-modal/info-modal.component';
+import { formatCep } from 'src/app/shared/utils/functions/cep';
 import { formataCpf } from 'src/app/shared/utils/functions/cpf';
+import { formatPhone } from 'src/app/shared/utils/functions/phone';
 import { CustomValidator } from 'src/app/shared/utils/validators/CustomValidator';
 import { FuncionariosService } from '../funcionarios/services/funcionarios.service';
 
@@ -43,7 +45,7 @@ export class ProfileComponent implements OnInit {
     ds_Email: new FormControl('', [Validators.required, Validators.email]),
     ds_Endereco: new FormControl('', [Validators.required]),
     ds_Cidade: new FormControl('', [Validators.required]),
-    sg_Uf: new FormControl('', [Validators.required]),
+    sg_Uf: new FormControl('', [Validators.required, Validators.maxLength(2), Validators.minLength(2)]),
     cd_Cep: new FormControl('', [Validators.required]),
   })
 
@@ -116,6 +118,7 @@ export class ProfileComponent implements OnInit {
     if (this.form.valid) {
       this.loadingUpdate = true;
       const payload = this.form.value;
+      payload.cd_Celular[0] !== '(' && (payload.cd_Celular = formatPhone(this.form.controls.cd_Celular.value));
       payload.id = this.clientId;
       this.clienteService.updateClient(payload).then(res => {
         console.log(res);
@@ -136,6 +139,8 @@ export class ProfileComponent implements OnInit {
       const payload = this.funcForm.value;
       payload.id = this.clientId;
       payload.authority = this.role;
+      payload.cd_Celular[0] !== '(' && (payload.cd_Celular = formatPhone(this.funcForm.controls.cd_Celular.value));
+      payload.cd_Cep[5] !== '-' && (payload.cd_Cep = formatCep(this.funcForm.controls.cd_Cep.value));
       this.funcionariosService.updateAtendente(payload).then(res => {
         console.log(res);
         this.funcionariosService.dadosAtualizados.next(res);
@@ -144,6 +149,18 @@ export class ProfileComponent implements OnInit {
       }).catch(error => {
         console.log(error);
         this.loadingUpdate = false;
+      })
+    }
+  }
+
+  fillCep() {
+    if (this.funcForm.controls.cd_Cep.value.length === 8) {
+      this.clienteService.getEndereco(this.funcForm.controls.cd_Cep.value).then(res => {
+        this.funcForm.controls.ds_Endereco.setValue(res.logradouro);
+        this.funcForm.controls.ds_Cidade.setValue(res.localidade);
+        this.funcForm.controls.sg_Uf.setValue(res.uf);
+      }).catch(error => {
+        console.log(error);
       })
     }
   }

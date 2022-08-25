@@ -127,7 +127,8 @@
     </div>
 
     <div class="label-float">
-      <input type="text" placeholder=" " name="cd_Cep" id="cd_Cep" formControlName="cd_Cep" />
+      <input type="text" placeholder=" " name="cd_Cep" id="cd_Cep" formControlName="cd_Cep" mask="00000-000"
+        (keyup)="fillCep()" />
       <label>CEP:</label>
 
       <div class="error-msg">

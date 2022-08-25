@@ -20,4 +20,10 @@ export class ClienteService {
   updateClient(payload: Cliente) {
     return this.http.put<Cliente>(`${environment.baseUrl}/cliente/update`, payload).toPromise();
   }
+
+  getEndereco(cep: string) {
+    const apiCep = `https://viacep.com.br/ws/${cep}/json/`;
+    return this.http.get<any>(apiCep).toPromise();
+
+  }
 }
