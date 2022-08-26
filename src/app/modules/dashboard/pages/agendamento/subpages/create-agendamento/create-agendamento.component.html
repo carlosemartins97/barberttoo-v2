@@ -1,1 +1,42 @@
-<p>create-agendamento works!</p>
+<app-card-skeleton [title]="'Novo agendamento'" class="create-agendamento">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="label-float">
+      <select placeholder=" " name="servico" id="servico" formControlName="servico" (change)="getFuncionarios()">
+        <option [value]="servico.id" *ngFor="let servico of servicos">{{servico.nm_servico}}</option>
+      </select>
+      <label>Serviço</label>
+      <fa-icon [icon]="faAngleDown"></fa-icon>
+    </div>
+
+    <div class="label-float" [hidden]="getForm().servico.value === ''" (change)="getAgendamentosFuncionario()">
+      <select placeholder=" " name="funcionario" id="funcionario" formControlName="funcionario">
+        <option [value]="funcionario.id" *ngFor="let funcionario of funcionarios">{{funcionario.nm_Funcionario}}
+        </option>
+      </select>
+      <label>Atendente</label>
+      <fa-icon [icon]="faAngleDown"></fa-icon>
+    </div>
+
+    <div class="label-float" [hidden]="getForm().funcionario.value === ''" (change)="getHorariosDisponiveis()">
+      <input type="date" placeholder=" " name="date" id="date" formControlName="date" [min]="minDate" />
+      <label>Data</label>
+    </div>
+
+    <div class="label-float" [hidden]="getForm().date.value === ''">
+      <select placeholder=" " name="hour" id="hour" formControlName="hour">
+        <option [value]="hora" *ngFor="let hora of horarios">{{hora}}
+        </option>
+      </select>
+      <label>Atendente</label>
+      <fa-icon [icon]="faAngleDown"></fa-icon>
+    </div>
+
+
+    <div class="submit" *ngIf="form.valid">
+      <button *ngIf="!loading" type="submit">
+        Agendar
+      </button>
+      <app-loader *ngIf="loading" color="dark"></app-loader>
+    </div>
+  </form>
+</app-card-skeleton>

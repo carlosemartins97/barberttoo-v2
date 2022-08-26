@@ -95,3 +95,9 @@ iframe:not([tabindex="-1"]),
     border-radius: 2px;
   }
 }
+
+.label-float {
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+}
