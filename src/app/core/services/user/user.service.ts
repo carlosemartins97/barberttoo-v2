@@ -65,6 +65,7 @@ export class UserService {
   logout() {
     this.tokenService.excluiToken();
     this.excluiId();
+    this.excluiRole();
     this.usuarioSubject.next({});
     this.router.navigate(['']);
   }
