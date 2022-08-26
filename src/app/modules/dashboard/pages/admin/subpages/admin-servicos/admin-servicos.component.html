@@ -35,7 +35,7 @@
 
       <div class="error-msg">
         <span
-          *ngIf="(form.controls.nm_servico.touched && form.controls.nm_servico.errors )|| (form.controls.nm_servico.errors )">Insira
+          *ngIf="(form.controls.nm_servico.touched && form.controls.nm_servico.errors )|| (form.controls.nm_servico.errors && submitted )">Insira
           um nome.</span>
       </div>
     </div>
@@ -46,7 +46,7 @@
 
       <div class="error-msg">
         <span
-          *ngIf="(form.controls.ds_servico.touched && form.controls.ds_servico.errors )|| (form.controls.ds_servico.errors )">Insira
+          *ngIf="(form.controls.ds_servico.touched && form.controls.ds_servico.errors )|| (form.controls.ds_servico.errors && submitted )">Insira
           uma descrição.</span>
       </div>
     </div>
@@ -57,7 +57,7 @@
 
       <div class="error-msg">
         <span
-          *ngIf="(form.controls.vl_preco.touched && form.controls.vl_preco.errors )|| (form.controls.vl_preco.errors )">Insira
+          *ngIf="(form.controls.vl_preco.touched && form.controls.vl_preco.errors )|| (form.controls.vl_preco.errors && submitted )">Insira
           um valor.</span>
       </div>
     </div>

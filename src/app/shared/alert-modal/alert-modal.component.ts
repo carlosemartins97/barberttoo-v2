@@ -12,6 +12,7 @@ export class AlertModalComponent implements OnInit {
 
   closeResult = '';
   @ViewChild('content', { read: TemplateRef }) content: TemplateRef<any>;
+  @Input() modalClass?: string;
   @Input() title?: string;
   @Input() text?: string;
   @Input() actionText?: string = 'Excluir';
@@ -20,12 +21,11 @@ export class AlertModalComponent implements OnInit {
 
 
   constructor(private modalService: NgbModal, private modalConfig: NgbModalConfig) {
-    modalConfig.modalDialogClass = 'alert-modal';
     modalConfig.centered = true;
   }
 
   ngOnInit(): void {
-
+    this.modalConfig.modalDialogClass = `alert-modal ${this.modalClass}`;
   }
 
   open() {
@@ -38,5 +38,9 @@ export class AlertModalComponent implements OnInit {
 
   action() {
     this.actionClicked.emit('clicked');
+  }
+
+  ngOnDestroy() {
+    this.modalConfig.modalDialogClass = `alert-modal`;
   }
 }

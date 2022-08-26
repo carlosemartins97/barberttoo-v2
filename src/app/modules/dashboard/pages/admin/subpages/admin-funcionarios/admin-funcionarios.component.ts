@@ -40,8 +40,6 @@ export class AdminFuncionariosComponent implements OnInit {
   })
 
   constructor(private funcionariosService: FuncionariosService, private clienteService: ClienteService, private modalConfig: NgbModal, private modalService: NgbModalConfig) {
-    this.modalService.modalDialogClass = 'modal-create-func';
-    this.modalService.windowClass = 'modal-create-func';
   }
 
   ngOnInit(): void {

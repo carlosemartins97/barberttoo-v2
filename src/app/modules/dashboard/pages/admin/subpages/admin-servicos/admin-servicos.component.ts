@@ -17,6 +17,7 @@ export class AdminServicosComponent implements OnInit {
   loading: boolean = false;
   loadingCreate: boolean = false;
   servicos: CrudService[] = [];
+  submitted: boolean = false;
 
   faPlus = faPlus;
 
@@ -49,6 +50,7 @@ export class AdminServicosComponent implements OnInit {
   }
 
   onCreate() {
+    this.submitted = true;
     if (this.form.valid) {
       this.loadingCreate = true;
       this.servicosService.createService(this.form.value).then(res => {

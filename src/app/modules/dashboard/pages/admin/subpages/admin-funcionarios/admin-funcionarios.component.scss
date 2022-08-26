@@ -61,14 +61,12 @@
   }
 }
 
-::ng-deep .modal-create-func {
-  .modal-dialog {
-    @include mq(md) {
-      max-width: 720px;
-    }
-    @include mq(lg) {
-      max-width: 1080px;
-    }
+::ng-deep .modal-create {
+  @include mq(md) {
+    max-width: 720px;
+  }
+  @include mq(lg) {
+    max-width: 1080px;
   }
 }
 

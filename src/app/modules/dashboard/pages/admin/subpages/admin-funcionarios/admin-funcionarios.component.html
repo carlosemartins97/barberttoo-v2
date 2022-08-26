@@ -28,7 +28,8 @@
   </div>
 </div>
 
-<app-alert-modal [title]="'Novo funcionário'" actionText="Criar" color="amarelo" (actionClicked)="onCreate()" #edit>
+<app-alert-modal modalClass="modal-create" [title]="'Novo funcionário'" actionText="Criar" color="amarelo"
+  (actionClicked)="onCreate()" #edit>
   <form [formGroup]="funcForm" class="form" *ngIf="!loading">
     <div class="label-float">
       <input type="text" placeholder=" " name="nm_Funcionario" id="nm_Funcionario" formControlName="nm_Funcionario" />
