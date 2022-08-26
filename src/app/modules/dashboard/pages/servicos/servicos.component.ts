@@ -11,7 +11,7 @@ import { ServicosService } from './services/servicos.service';
 })
 export class ServicosComponent implements OnInit {
 
-  servicos: CrudService[];
+  servicos: CrudService[] = [];
   loading: boolean = false;
 
   role: string;
