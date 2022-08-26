@@ -82,9 +82,11 @@ export class CreateAgendamentoComponent implements OnInit {
       this.getForm().date.setValue('');
 
       this.atendimentosDoFuncionario = res.map(agendamento => {
+        const month = new Date(agendamento.dt_Agendamento).getMonth() + 1;
+        const day = new Date(agendamento.dt_Agendamento).getDate();
         return {
           hora: formateHourForAgendamentos(agendamento.dt_Agendamento),
-          data: new Date(agendamento.dt_Agendamento).getFullYear() + '-' + (new Date(agendamento.dt_Agendamento).getMonth() + 1) + '-' + new Date(agendamento.dt_Agendamento).getDate()
+          data: new Date(agendamento.dt_Agendamento).getFullYear() + '-' + (month < 10 ? `0${month}` : month) + '-' + (day < 10 ? `0${day}` : day)
         }
       });
       console.log(this.atendimentosDoFuncionario);
@@ -137,6 +139,8 @@ export class CreateAgendamentoComponent implements OnInit {
   getHorariosDisponiveis() {
     let listaHoras: any[] = [];
     const data = this.form.controls.date.value;
+
+    console.log(this.atendimentosDoFuncionario);
 
     this.atendimentosDoFuncionario.filter(agendamento => {
       if (data === agendamento.data) {
