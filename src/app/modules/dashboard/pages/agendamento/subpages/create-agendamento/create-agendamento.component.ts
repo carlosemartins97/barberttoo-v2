@@ -34,6 +34,8 @@ export class CreateAgendamentoComponent implements OnInit {
   funcionarios: AtendenteInterface[] = [];
   atendimentosDoFuncionario: { data: string, hora: string }[] = [];
 
+  step: number = 1;
+
   minDate: string;
   horarios: string[] = [];
 
@@ -47,7 +49,6 @@ export class CreateAgendamentoComponent implements OnInit {
   ngOnInit(): void {
     this.getServicos();
     this.setMinDate();
-    this.generateHorarios();
   }
 
   getForm() {
@@ -66,6 +67,8 @@ export class CreateAgendamentoComponent implements OnInit {
   getFuncionarios() {
     this.funcionariosService.getFuncionarios().then(res => {
       this.funcionarios = res;
+      this.step = 2;
+      this.getForm().funcionario.setValue('');
     }).catch(error => {
       console.log(error);
       alert('Erro ao carregar funcionários! Tente novamente mais tarde.');
@@ -75,6 +78,8 @@ export class CreateAgendamentoComponent implements OnInit {
   getAgendamentosFuncionario() {
     const funcId = this.form.controls.funcionario.value;
     this.agendamentoService.getAgendamentosFuncionario(funcId).then(res => {
+      this.step = 3;
+      this.getForm().date.setValue('');
 
       this.atendimentosDoFuncionario = res.map(agendamento => {
         return {
@@ -103,7 +108,7 @@ export class CreateAgendamentoComponent implements OnInit {
     }
   }
 
-  generateHorarios() {
+  generateHorariosForToday() {
     const date = new Date();
     const hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
     const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
@@ -124,19 +129,30 @@ export class CreateAgendamentoComponent implements OnInit {
     return disponiveis;
   }
 
+  generateHorariosForAnotherDay() {
+    return ['09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00',
+      '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30'];
+  }
+
   getHorariosDisponiveis() {
     let listaHoras: any[] = [];
-    const data = formatDateForInput(false, this.form.get('date')?.value);
+    const data = this.form.controls.date.value;
+
     this.atendimentosDoFuncionario.filter(agendamento => {
       if (data === agendamento.data) {
         listaHoras.push(agendamento.hora)
       }
     })
 
-    const newList = this.generateHorarios().filter(hora => {
+    const nowDate = formatDateForInput(true, new Date());
+    const horarios = data === nowDate ? this.generateHorariosForToday() : this.generateHorariosForAnotherDay();
+
+    const newList = horarios.filter(hora => {
       return !listaHoras.includes(hora)
     })
     this.horarios = newList;
+    this.step = 4;
+    this.getForm().hour.setValue('');
   }
 
   onSubmit() {

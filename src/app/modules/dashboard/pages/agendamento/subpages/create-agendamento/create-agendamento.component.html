@@ -8,7 +8,7 @@
       <fa-icon [icon]="faAngleDown"></fa-icon>
     </div>
 
-    <div class="label-float" [hidden]="getForm().servico.value === ''" (change)="getAgendamentosFuncionario()">
+    <div class="label-float" *ngIf="step > 1" (change)="getAgendamentosFuncionario()">
       <select placeholder=" " name="funcionario" id="funcionario" formControlName="funcionario">
         <option [value]="funcionario.id" *ngFor="let funcionario of funcionarios">{{funcionario.nm_Funcionario}}
         </option>
@@ -17,17 +17,17 @@
       <fa-icon [icon]="faAngleDown"></fa-icon>
     </div>
 
-    <div class="label-float" [hidden]="getForm().funcionario.value === ''" (change)="getHorariosDisponiveis()">
+    <div class="label-float" *ngIf="step > 2" (change)="getHorariosDisponiveis()">
       <input type="date" placeholder=" " name="date" id="date" formControlName="date" [min]="minDate" />
       <label>Data</label>
     </div>
 
-    <div class="label-float" [hidden]="getForm().date.value === ''">
+    <div class="label-float" *ngIf="step > 3">
       <select placeholder=" " name="hour" id="hour" formControlName="hour">
         <option [value]="hora" *ngFor="let hora of horarios">{{hora}}
         </option>
       </select>
-      <label>Atendente</label>
+      <label>Horários disponiveis</label>
       <fa-icon [icon]="faAngleDown"></fa-icon>
     </div>
 
