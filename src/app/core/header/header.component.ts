@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faBagShopping, faBars, faCalendarDays, faHammer, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faBars, faCalendarDays, faChartLine, faHammer, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FuncionariosService } from 'src/app/modules/dashboard/pages/funcionarios/services/funcionarios.service';
 import { ClienteService } from '../services/cliente/cliente.service';
 import { UserService } from '../services/user/user.service';
@@ -32,6 +32,7 @@ export class HeaderComponent implements OnInit {
   ]
 
   navHeaderAdmin: HeaderItem[] = [
+    { name: 'Dashboard', icon: faChartLine, link: 'app/dashboard' },
     { name: 'Administração', icon: faHammer, link: 'app/admin' },
   ]
 

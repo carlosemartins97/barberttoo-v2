@@ -13,7 +13,7 @@
 
     <ul class="header__menu">
       <li class="header__menu__item" *ngFor="let item of navHeader;">
-        <a [routerLink]="item.link">
+        <a [routerLink]="item.link" *ngIf="role === 'ROLE_CLIENTE'">
           <fa-icon [icon]="item.icon" [fixedWidth]="true"></fa-icon>
           {{item.name}}
         </a>
@@ -54,13 +54,13 @@
   <div class="nav" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
     <ul>
       <li *ngFor="let item of navHeader;">
-        <a [routerLink]="item.link" (click)="collapse.toggle()">
+        <a [routerLink]="item.link" (click)="collapse.toggle()" *ngIf="role === 'ROLE_CLIENTE'">
           <fa-icon [icon]="item.icon" [fixedWidth]="true"></fa-icon>
           {{item.name}}
         </a>
       </li>
       <li *ngFor="let admin of navHeaderAdmin;">
-        <a [routerLink]="admin.link" (click)="collapse.toggle()">
+        <a [routerLink]="admin.link" (click)="collapse.toggle()" *ngIf="role === 'ROLE_ADM'">
           <fa-icon [icon]="admin.icon" [fixedWidth]="true"></fa-icon>
           {{admin.name}}
         </a>
