@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { AtendenteInterface } from 'src/app/core/models/funcionario.model';
 import { CrudService } from 'src/app/core/models/service.model';
 import { UserService } from 'src/app/core/services/user/user.service';
+import { InfoModalComponent } from 'src/app/shared/info-modal/info-modal.component';
 import { formatDateForInput, formateHourForAgendamentos } from 'src/app/shared/utils/functions/date';
 import { FuncionariosService } from '../../../funcionarios/services/funcionarios.service';
 import { ServicosService } from '../../../servicos/services/servicos.service';
@@ -16,6 +17,8 @@ import { AgendamentoService } from '../../services/agendamento.service';
   styleUrls: ['./create-agendamento.component.scss']
 })
 export class CreateAgendamentoComponent implements OnInit {
+
+  @ViewChild(InfoModalComponent) modal: InfoModalComponent;
 
   form: FormGroup = new FormGroup({
     servico: new FormControl('', [Validators.required]),
@@ -143,13 +146,17 @@ export class CreateAgendamentoComponent implements OnInit {
       const id = this.userService.retornaUserId();
       this.agendamentoService.createAgendamento(this.form.value, id).then(res => {
         this.loading = false;
-        this.router.navigate(['app/agendamento']);
+        this.modal.open();
       }).catch(error => {
         console.log(error);
         this.loading = false;
         alert('Não foi possível completar sua requisição! Tente novamente mais tarde.');
       })
     }
+  }
+
+  redirectToAgendamentos() {
+    this.router.navigate(['app/agendamento']);
   }
 
 }
