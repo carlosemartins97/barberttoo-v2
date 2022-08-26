@@ -119,13 +119,17 @@ export class CreateAgendamentoComponent implements OnInit {
       '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30'];
 
     const disponiveis = horarios.filter(horario => {
-      if (Number(horario.substring(0, 2)) > hour) {
-        return horario;
-      } else if (Number(horario.substring(0, 2)) === hour) {
+      if (Number(horario.substring(0, 2)) > Number(hour)) {
+        if (Number(hour) + 1 === Number(horario.substring(0, 2)) && Number(horario.substring(3) === '00' && Number(minutes) > 45)) {
+          return null;
+        }
+        return horario
+      } else if (Number(horario.substring(0, 2)) === Number(hour)) {
         if (Number(horario.substring(3)) > Number(minutes) + 15) {
           return horario;
         }
-      } return null;
+      }
+      return null;
     })
 
     return disponiveis;
