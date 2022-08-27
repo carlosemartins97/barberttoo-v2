@@ -17,6 +17,6 @@
     </div>
   </div>
   <div class="card-servicos__footer" *ngIf="role === 'ROLE_CLIENTE'">
-    <a routerLink="../agendamento/create" [queryParams]="{service: servico.nm_servico}">Agendar</a>
+    <a routerLink="../agendamento/create" [queryParams]="{service: servico.id}">Agendar</a>
   </div>
 </div>

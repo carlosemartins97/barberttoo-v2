@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { AtendenteInterface } from 'src/app/core/models/funcionario.model';
 import { CrudService } from 'src/app/core/models/service.model';
@@ -39,11 +39,20 @@ export class CreateAgendamentoComponent implements OnInit {
   minDate: string;
   horarios: string[] = [];
 
+  selectedService: string | undefined;
+
 
   //icons
   faAngleDown = faAngleDown;
 
-  constructor(private servicosService: ServicosService, private funcionariosService: FuncionariosService, private agendamentoService: AgendamentoService, private userService: UserService, private router: Router) {
+  constructor(
+    private servicosService: ServicosService,
+    private funcionariosService: FuncionariosService,
+    private agendamentoService: AgendamentoService,
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
   }
 
   ngOnInit(): void {
@@ -55,9 +64,19 @@ export class CreateAgendamentoComponent implements OnInit {
     return this.form.controls;
   }
 
+  getSelectedService() {
+    this.selectedService = this.route.snapshot.queryParams['service'];
+
+    if (this.selectedService !== undefined && this.servicos.filter(el => el.id === +this.selectedService!).length > 0) {
+      this.form.controls.servico.setValue(this.selectedService);
+      this.getFuncionarios();
+    }
+  }
+
   getServicos() {
     this.servicosService.getServices().then(res => {
       this.servicos = res;
+      this.getSelectedService();
     }).catch(error => {
       console.log(error);
       alert('Erro ao carregar serviços! Tente novamente mais tarde.');
