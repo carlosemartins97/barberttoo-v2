@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from 'src/app/core/guards/admin/admin.guard';
-import { ClienteGuard } from 'src/app/core/guards/cliente/admin.guard';
+import { ClienteGuard } from 'src/app/core/guards/cliente/cliente.guard';
 import { FuncionarioGuard } from 'src/app/core/guards/funcionario/funcionario.guard';
 
 
@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'agendamento'
+    redirectTo: 'agendamento',
   },
   {
     path: 'agendamento',

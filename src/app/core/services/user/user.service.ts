@@ -68,6 +68,7 @@ export class UserService {
     this.excluiRole();
     this.usuarioSubject.next({});
     this.router.navigate(['']);
+    location.reload();
   }
 
   estaLogado() {
