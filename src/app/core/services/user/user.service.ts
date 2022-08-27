@@ -30,7 +30,7 @@ export class UserService {
   }
 
   retornaUsuario() {
-    return this.usuarioSubject.asObservable();
+    return this.usuarioSubject.toPromise();
   }
 
   salvaUserId(id: number) {

@@ -1,0 +1,39 @@
+@import "../../../../../assets/styles/dependencies";
+
+.dashboard {
+  padding: 16px;
+  &__header {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include mq(lg) {
+      align-items: center;
+      flex-direction: row;
+    }
+    h1 {
+      color: $color-amarelo;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__body {
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+
+      @include mq(lg) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .loader {
+      margin-top: 32px;
+    }
+  }
+}

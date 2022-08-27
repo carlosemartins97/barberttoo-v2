@@ -1,0 +1,34 @@
+<div class="cards">
+  <div class="cards__header">
+    <h2>{{agendamento.servico.nm_servico}}</h2>
+    <button class="delete" (click)="openAlertModal()">
+      <fa-icon [icon]="faCheck" [fixedWidth]="true" *ngIf="!loading"></fa-icon>
+      <app-loader *ngIf="loading"></app-loader>
+    </button>
+  </div>
+  <div class="cards__body">
+    <div class="cards__content">
+      <span class="cards__date">{{dataAgendamento}}</span>
+      <div class="cards__info">
+        <p>Horário: <strong>{{agendamento.dt_Agendamento | date: 'HH:mm'}}</strong></p>
+        <p>Cliente: <strong>{{agendamento.cliente.nm_Cliente}}</strong></p>
+        <p>Contato: <strong>{{agendamento.cliente.cd_Celular}}</strong> ou
+          <strong>{{agendamento.cliente.ds_Email}}</strong>
+        </p>
+      </div>
+    </div>
+    <!-- <div class="cards__detalhes">
+      <a [routerLink]="[agendamento.id]">+ Detalhes</a>
+    </div> -->
+  </div>
+</div>
+
+<app-alert-modal title="Atenção!" (actionClicked)="onDelete()" color="amarelo" actionText="Concluir">
+  <p>
+    Você está prestes a dar como concluído o agendamento da data <strong>{{agendamento.dt_Agendamento | date:
+      'dd/MM/yy'}}</strong>
+    para o
+    serviço de <strong>{{agendamento.servico.nm_servico}}</strong> do cliente
+    <strong>{{agendamento.cliente.nm_Cliente}}</strong>
+  </p>
+</app-alert-modal>

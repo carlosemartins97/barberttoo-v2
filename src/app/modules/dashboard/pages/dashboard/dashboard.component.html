@@ -1,1 +1,24 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <div class="dashboard__header">
+    <div>
+      <h1>Dashboard</h1>
+
+      <p *ngIf="agendamentos.length > 0 && !loading">Você tem um total de <strong>{{agendamentos.length}}</strong>
+        {{agendamentos.length > 1 ? 'agendamentos' :
+        'agendamento'}} para hoje </p>
+      <p *ngIf="agendamentos.length === 0 && !loading">Não existe nenhum agendamento marcado para o dia de hoje.</p>
+    </div>
+  </div>
+
+  <div class="dashboard__body">
+    <div class="grid">
+      <app-card-agendamento-dashboard *ngFor="let agendamento of agendamentos;" [agendamento]="agendamento"
+        (deleteClicked)="getAgendamentosByAtendente()">
+      </app-card-agendamento-dashboard>
+    </div>
+
+    <div class="loader" *ngIf="loading">
+      <app-loader></app-loader>
+    </div>
+  </div>
+</div>
