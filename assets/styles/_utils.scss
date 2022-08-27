@@ -1,0 +1,15 @@
+@import "dependencies";
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $input-background;
+  border-radius: 8px;
+}
