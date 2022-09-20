@@ -1,9 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
-import { CardAgendamentoComponent } from 'src/app/modules/dashboard/pages/agendamento/components/card-agendamento/card-agendamento.component';
 
 @Component({
-  providers: [CardAgendamentoComponent],
   selector: 'app-alert-modal',
   templateUrl: './alert-modal.component.html',
   styleUrls: ['./alert-modal.component.scss']
