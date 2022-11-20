@@ -31,4 +31,50 @@
     serviço de <strong>{{agendamento.servico.nm_servico}}</strong> do cliente
     <strong>{{agendamento.cliente.nm_Cliente}}</strong>
   </p>
+
+  <form [formGroup]="form" (ngSubmit)="onDelete()" class="form">
+    <div class="checkbox">
+      <input type="checkbox" name="newPrice" id="newPrice" formControlName="newPrice">
+      <label for="newPrice">Atribuir novo preço?</label>
+    </div>
+
+    <div class="label-float" *ngIf="getForm().newPrice.value">
+      <input type="number" placeholder=" " name="price" id="price" formControlName="price" />
+      <label for="price">Novo preço:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(getForm().price.touched && getForm().price.errors) || (getForm().price.errors && submitted)">Insira
+          um nome completo</span>
+      </div>
+    </div>
+
+    <div class="label-float">
+      <select type="text" placeholder=" " name="pagamento" id="pagamento" formControlName="ds_Pagamento">
+        <option value="CREDITO">Crédito</option>
+        <option value="DEBITO">Débito</option>
+        <option value="DINHEIRO">Dinheiro</option>
+        <option value="CHEQUE">Cheque</option>
+        <option value="BOLETO">Boleto</option>
+        <option value="VOUCHER">Voucher</option>
+        <option value="PIX">Pix</option>
+      </select>
+      <label>Forma de pagamento:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(getForm().ds_Pagamento.touched && getForm().ds_Pagamento.errors) || (getForm().ds_Pagamento.errors && submitted)">Escolha
+          a forma de pagamento</span>
+      </div>
+    </div>
+
+    <p>
+      Total: <strong *ngIf="getForm().newPrice.value; else elseBlock">
+        R$ {{getForm().price.value.toFixed(2)}}</strong>
+      <ng-template #elseBlock>
+        <strong>R$ {{agendamento.servico.vl_preco.toFixed(2)}}</strong>
+      </ng-template>
+    </p>
+
+  </form>
 </app-alert-modal>
