@@ -1,0 +1,31 @@
+@import "../../../../../assets/styles/dependencies";
+
+.historico {
+  padding: 16px;
+  &__header {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include mq(lg) {
+      align-items: center;
+      flex-direction: row;
+    }
+    h1 {
+      color: $color-amarelo;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__body {
+    overflow: auto;
+
+    .loader {
+      margin-top: 32px;
+    }
+  }
+}

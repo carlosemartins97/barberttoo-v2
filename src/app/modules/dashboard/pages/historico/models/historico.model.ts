@@ -7,3 +7,15 @@ export interface HistoricoModel {
   servico: number;
   cliente: number;
 }
+
+export interface HistoricoFuncionario {
+  cliente: {
+    nm_Cliente: string;
+    ds_Email: string;
+  };
+  dt_Realizado: string;
+  servico: {
+    nm_servico: string;
+  };
+  vl_Pago: number;
+}

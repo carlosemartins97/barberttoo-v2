@@ -38,6 +38,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/admin/admin.module').then((m) => m.AdminModule),
     canLoad: [AdminGuard]
   },
+  {
+    path: 'historico',
+    loadChildren: () => import('./pages/historico/historico.module').then((m) => m.HistoricoModule),
+    canLoad: [AdminGuard]
+  },
 ];
 
 @NgModule({

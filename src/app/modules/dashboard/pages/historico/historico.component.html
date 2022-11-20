@@ -1,1 +1,20 @@
-<p>historico works!</p>
+<div class="historico">
+  <div class="historico__header">
+    <div>
+      <h1>Histórico de atendimentos</h1>
+
+      <p>Visualize abaixo todos os atendimentos concluídos de acordo com o filtro selecionado</p>
+
+      <!-- <form [formGroup]="form" (ngSubmit)="onFilter()" class="form">
+
+      </form> -->
+    </div>
+  </div>
+
+  <div class="historico__body" *ngIf="!loading">
+    <app-historico-funcionario-table [agendamentos]="agendamentos"></app-historico-funcionario-table>
+  </div>
+  <div class="loading" *ngIf="loading">
+    <app-loader></app-loader>
+  </div>
+</div>

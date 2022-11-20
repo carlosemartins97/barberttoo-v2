@@ -1,0 +1,11 @@
+@import "../../../../../../../assets/styles/dependencies";
+
+table {
+  th {
+    color: $color-amarelo;
+    vertical-align: middle;
+  }
+  td {
+    color: $color-branco;
+  }
+}
