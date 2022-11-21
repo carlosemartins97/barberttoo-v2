@@ -9,7 +9,6 @@ import { HistoricoFuncionario } from '../../models/historico.model';
 export class HistoricoFuncionarioTableComponent implements OnInit {
 
   @Input() agendamentos: HistoricoFuncionario[];
-  agendamentosTrab: any[];
 
   constructor() { }
 

@@ -41,7 +41,6 @@ const routes: Routes = [
   {
     path: 'historico',
     loadChildren: () => import('./pages/historico/historico.module').then((m) => m.HistoricoModule),
-    canLoad: [AdminGuard]
   },
 ];
 

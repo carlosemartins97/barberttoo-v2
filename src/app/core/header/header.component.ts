@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
     { name: 'Agendamento', icon: faCalendarDays, link: 'app/agendamento' },
     { name: 'Serviços', icon: faBagShopping, link: 'app/servicos' },
     { name: 'Funcionários', icon: faUsers, link: 'app/funcionarios' },
+    { name: 'Histórico', icon: faList, link: 'app/historico' },
   ]
 
   navHeaderAdmin: HeaderItem[] = [

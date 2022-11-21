@@ -12,7 +12,11 @@
   </div>
 
   <div class="historico__body" *ngIf="!loading">
-    <app-historico-funcionario-table [agendamentos]="agendamentos"></app-historico-funcionario-table>
+    <app-historico-cliente-table [agendamentos]="agendamentosCliente" *ngIf="isCliente"></app-historico-cliente-table>
+
+    <app-historico-funcionario-table [agendamentos]="agendamentosFunc" *ngIf="!isCliente">
+    </app-historico-funcionario-table>
+
   </div>
   <div class="loading" *ngIf="loading">
     <app-loader></app-loader>

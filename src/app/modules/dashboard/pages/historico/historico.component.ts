@@ -12,9 +12,10 @@ import { HistoricoService } from './services/historico.service';
 export class HistoricoComponent implements OnInit {
 
   loading: boolean = false;
-  userRole: string;
+  isCliente: boolean;
   userId: string;
-  agendamentos: HistoricoFuncionario[] = [];
+  agendamentosFunc: HistoricoFuncionario[] = [];
+  agendamentosCliente: any = [];
 
   // form = new FormGroup({
 
@@ -23,9 +24,9 @@ export class HistoricoComponent implements OnInit {
   constructor(private userService: UserService, private historicoService: HistoricoService) { }
 
   ngOnInit(): void {
-    this.userRole = this.userService.retornaUserRole();
+    this.isCliente = this.userService.retornaUserRole() === 'ROLE_CLIENTE';
     this.userId = this.userService.retornaUserId();
-    this.getHistoricoByAtendente();
+    this.isCliente ? this.getHistoricoByCliente() : this.getHistoricoByAtendente();
   }
 
   onFilter() {
@@ -36,7 +37,19 @@ export class HistoricoComponent implements OnInit {
     this.loading = true;
     this.historicoService.getFuncionarioHistoricById(+this.userId).then(res => {
       console.log(res);
-      this.agendamentos = res;
+      this.agendamentosFunc = res;
+      this.loading = false;
+    }).catch(error => {
+      console.log(error);
+      this.loading = false;
+    })
+  }
+
+  getHistoricoByCliente() {
+    this.loading = true;
+    this.historicoService.getClienteHistoricById(+this.userId).then(res => {
+      console.log(res);
+      this.agendamentosCliente = res;
       this.loading = false;
     }).catch(error => {
       console.log(error);
