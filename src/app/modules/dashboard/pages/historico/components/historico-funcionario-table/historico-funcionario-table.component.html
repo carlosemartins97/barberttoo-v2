@@ -12,7 +12,7 @@
     <tr *ngFor="let agendamento of agendamentos">
       <td scope="row">{{agendamento.cliente.nm_Cliente}}</td>
       <td>
-        {{agendamento.dt_Realizado | date: "dd/MM/YY 'às' hh:mm" }}
+        {{agendamento.dt_Realizado | date: "dd/MM/YY 'às' HH:mm" }}
       </td>
       <td>{{agendamento.servico.nm_servico}}</td>
       <td>{{agendamento.cliente.ds_Email}}</td>

@@ -5,7 +5,7 @@
 
       <p *ngIf="agendamentos.length > 0 && !loading">Você tem um total de <strong>{{agendamentos.length}}</strong>
         {{agendamentos.length > 1 ? 'agendamentos' :
-        'agendamento'}} para hoje </p>
+        'agendamento'}} </p>
       <p *ngIf="agendamentos.length === 0 && !loading">Não existe nenhum agendamento marcado para o dia de hoje.</p>
     </div>
   </div>
