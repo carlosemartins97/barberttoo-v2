@@ -67,7 +67,7 @@
       </li>
     </ul>
     <div class="user">
-      <a routerLink="app/profile">Editar perfil</a>
+      <a routerLink="app/profile" (click)="collapse.toggle()">Editar perfil</a>
       <button class="logout" (click)="logout()">
         Logout
       </button>
