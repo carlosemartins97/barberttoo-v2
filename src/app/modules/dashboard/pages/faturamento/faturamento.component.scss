@@ -1,0 +1,105 @@
+@import "../../../../../assets/styles/dependencies";
+
+.faturamento {
+  padding: 16px;
+  &__header {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include mq(lg) {
+      align-items: center;
+      flex-direction: row;
+    }
+    h1 {
+      color: $color-amarelo;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__body {
+    overflow: auto;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      @media screen and (max-width: 1023px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      &__chart {
+        background: $color-cinza-claro;
+        border: 2px solid $color-amarelo;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: $color-dark;
+        padding: 32px;
+
+        &__title {
+          font-weight: bold;
+        }
+
+        &__card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        &__values {
+          display: flex;
+          gap: 32px;
+
+          &--previous,
+          &--next {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .money {
+              color: $color-amarelo;
+            }
+          }
+        }
+
+        &__total {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .money {
+          font-weight: 700;
+          font-size: 1.2rem;
+          display: flex;
+          height: 100%;
+          align-items: center;
+
+          &--green {
+            color: $color-sucesso;
+          }
+
+          &--red {
+            color: $color-red;
+          }
+
+          &--big {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+
+    .loader {
+      margin-top: 32px;
+    }
+  }
+}

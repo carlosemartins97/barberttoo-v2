@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faBagShopping, faBars, faCalendarDays, faChartLine, faHammer, faList, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faBars, faCalendarDays, faChartLine, faHammer, faList, faSackDollar, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FuncionariosService } from 'src/app/modules/dashboard/pages/funcionarios/services/funcionarios.service';
 import { ClienteService } from '../services/cliente/cliente.service';
 import { UserService } from '../services/user/user.service';
@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   faUsers = faUsers;
   faBars = faBars;
   faList = faList;
+  faSackDollar = faSackDollar;
 
   isCollapsed = true;
 
@@ -37,6 +38,7 @@ export class HeaderComponent implements OnInit {
     { name: 'Dashboard', icon: faChartLine, link: 'app/dashboard' },
     { name: 'Administração', icon: faHammer, link: 'app/admin' },
     { name: 'Histórico', icon: faList, link: 'app/historico' },
+    { name: 'Faturamento', icon: faSackDollar, link: 'app/faturamento' },
   ]
 
   constructor(private router: Router, private userService: UserService, private clienteService: ClienteService, private funcionariosService: FuncionariosService) {

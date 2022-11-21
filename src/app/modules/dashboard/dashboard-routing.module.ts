@@ -42,6 +42,11 @@ const routes: Routes = [
     path: 'historico',
     loadChildren: () => import('./pages/historico/historico.module').then((m) => m.HistoricoModule),
   },
+  {
+    path: 'faturamento',
+    loadChildren: () => import('./pages/faturamento/faturamento.module').then((m) => m.FaturamentoModule),
+    canLoad: [AdminGuard]
+  },
 ];
 
 @NgModule({

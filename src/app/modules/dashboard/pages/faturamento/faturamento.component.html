@@ -1,0 +1,68 @@
+<div class="faturamento">
+  <div class="faturamento__header">
+    <div>
+      <h1>Faturamento</h1>
+
+      <p>Informações sobre ganhos e lucros referente às datas especificadas abaixo.</p>
+    </div>
+  </div>
+
+  <div class="faturamento__body" *ngIf="!loading">
+    <div class="grid">
+      <div class="grid__chart">
+        <p class="grid__chart__title">Comparação entre hoje e ontem.</p>
+        <div class="grid__chart__card">
+          <div class="grid__chart__values">
+            <p class="grid__chart__values--previous">
+              <span>ontem</span>
+              <span class="money">R$ {{lucroDiaAnterior.toFixed(2)}}</span>
+            </p>
+            <p class="grid__chart__values--next">
+              <span>hoje</span>
+              <span class="money">R$ {{lucroDiaAtual.toFixed(2)}}</span>
+
+            </p>
+          </div>
+          <p class="grid__chart__total">
+            <span>até o momento você está com um balanço de:</span>
+            <span class="money"
+              [ngClass]="{'money--green': (lucroDiaAtual - lucroDiaAnterior) >= 0, 'money--red': (lucroDiaAtual - lucroDiaAnterior) < 0}">R$
+              {{(lucroDiaAtual - lucroDiaAnterior).toFixed(2)}}</span>
+          </p>
+        </div>
+      </div>
+      <div class="grid__chart">
+        <p class="grid__chart__title">Comparação o mês atual e mês passado.</p>
+        <div class="grid__chart__card">
+          <div class="grid__chart__values">
+            <p class="grid__chart__values--previous">
+              <span>mês anterior</span>
+              <span class="money">R$ {{lucroMesPassado.toFixed(2)}}</span>
+            </p>
+            <p class="grid__chart__values--next">
+              <span>mês atual</span>
+              <span class="money">R$ {{lucroMesAtual.toFixed(2)}}</span>
+            </p>
+          </div>
+          <p class="grid__chart__total">
+            <span>até o momento você está com um balanço de:</span>
+            <span class="money"
+              [ngClass]="{'money--green': (lucroMesAtual - lucroMesPassado >= 0), 'money--red': (lucroMesAtual - lucroMesPassado) < 0}">R$
+              {{(lucroMesAtual - lucroMesPassado).toFixed(2)}}</span>
+          </p>
+        </div>
+      </div>
+      <div class="grid__chart">
+        <p class="grid__chart__title">Total de atendimentos nesse mês:</p>
+        <p class="money money--big">{{agendamentosInMonth}}</p>
+      </div>
+      <div class="grid__chart">
+        <p class="grid__chart__title">Maior serviço prestado:</p>
+        <p class="money money--big">{{servicoMaisRealizado}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="loading" *ngIf="loading">
+    <app-loader></app-loader>
+  </div>
+</div>
