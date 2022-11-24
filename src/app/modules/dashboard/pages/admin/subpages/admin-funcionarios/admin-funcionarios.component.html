@@ -138,6 +138,20 @@
     </div>
 
     <div class="label-float">
+      <select type="text" placeholder=" " name="authority" id="authority" formControlName="authority">
+        <option value="ROLE_ADM">Administrador</option>
+        <option value="ROLE_ATEND">Funcionário</option>
+      </select>
+      <label>Papel do usuário:</label>
+
+      <div class="error-msg">
+        <span
+          *ngIf="(getFuncForm().authority.touched && getFuncForm().authority.errors) || (getFuncForm().authority.errors && submitted)">Escolha
+          o papel do usuário</span>
+      </div>
+    </div>
+
+    <div class="label-float">
       <input type="password" placeholder=" " name="cd_Password" id="cd_Password" formControlName="cd_Password" />
       <label>Senha:</label>
 

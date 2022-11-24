@@ -45,7 +45,7 @@ const routes: Routes = [
   {
     path: 'faturamento',
     loadChildren: () => import('./pages/faturamento/faturamento.module').then((m) => m.FaturamentoModule),
-    canLoad: [AdminGuard]
+    canLoad: [FuncionarioGuard]
   },
 ];
 

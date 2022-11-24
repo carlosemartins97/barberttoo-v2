@@ -96,7 +96,8 @@
     }
   }
 
-  .label-float input {
+  .label-float input,
+  .label-float select {
     padding: 6px 16px 0;
     color: $color-branco;
     border: 0;
@@ -117,11 +118,13 @@
     }
   }
 
-  .label-float input:focus {
+  .label-float input:focus,
+  .label-float select:focus {
     border-bottom: 2px solid $color-amarelo;
   }
 
-  .label-float input::placeholder {
+  .label-float input::placeholder,
+  .label-float select::placeholder {
     color: transparent;
   }
 
@@ -138,10 +141,15 @@
     color: $color-branco;
   }
 
+  .label-float select:focus + label,
   .label-float input:focus + label,
+  .label-float select:not(:placeholder-shown) + label,
   .label-float input:not(:placeholder-shown) + label {
     font-size: 12px;
     margin-top: 6px;
     color: $color-amarelo;
+  }
+  option {
+    color: $color-dark;
   }
 }

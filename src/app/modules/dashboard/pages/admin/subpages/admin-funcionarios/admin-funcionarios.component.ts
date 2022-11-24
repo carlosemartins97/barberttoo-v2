@@ -37,6 +37,7 @@ export class AdminFuncionariosComponent implements OnInit {
     sg_Uf: new FormControl('', [Validators.required, Validators.maxLength(2), Validators.minLength(2)]),
     cd_Cep: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
     cd_Password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(32)]),
+    authority: new FormControl('ROLE_ATEND', [Validators.required]),
   })
 
   constructor(private funcionariosService: FuncionariosService, private clienteService: ClienteService, private modalConfig: NgbModal, private modalService: NgbModalConfig) {
@@ -86,7 +87,7 @@ export class AdminFuncionariosComponent implements OnInit {
       payload.cd_Celular = formatPhone(payload.cd_Celular);
       payload.cd_Cpf = unformatCpf(payload.cd_Cpf);
       payload.cd_Cep = formatCep(payload.cd_Cep);
-      payload.authority = 'ROLE_ADM';
+      payload.authority = this.getFuncForm().authority.value;
       this.funcionariosService.createFuncionario(payload).then(res => {
         console.log(res);
         this.modalConfig.dismissAll();

@@ -24,6 +24,12 @@
           {{admin.name}}
         </a>
       </li>
+      <li class="header__menu__item" *ngFor="let func of navHeaderFunc;">
+        <a [routerLink]="func.link" *ngIf="role === 'ROLE_ATEND'">
+          <fa-icon [icon]="func.icon" [fixedWidth]="true"></fa-icon>
+          {{func.name}}
+        </a>
+      </li>
     </ul>
   </nav>
 
@@ -63,6 +69,12 @@
         <a [routerLink]="admin.link" (click)="collapse.toggle()" *ngIf="role === 'ROLE_ADM'">
           <fa-icon [icon]="admin.icon" [fixedWidth]="true"></fa-icon>
           {{admin.name}}
+        </a>
+      </li>
+      <li *ngFor="let func of navHeaderFunc;">
+        <a [routerLink]="func.link" (click)="collapse.toggle()" *ngIf="role === 'ROLE_ATEND'">
+          <fa-icon [icon]="func.icon" [fixedWidth]="true"></fa-icon>
+          {{func.name}}
         </a>
       </li>
     </ul>

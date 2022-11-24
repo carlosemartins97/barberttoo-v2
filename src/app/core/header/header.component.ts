@@ -41,6 +41,13 @@ export class HeaderComponent implements OnInit {
     { name: 'Faturamento', icon: faSackDollar, link: 'app/faturamento' },
   ]
 
+  navHeaderFunc: HeaderItem[] = [
+    { name: 'Dashboard', icon: faChartLine, link: 'app/dashboard' },
+    { name: 'Histórico', icon: faList, link: 'app/historico' },
+    { name: 'Faturamento', icon: faSackDollar, link: 'app/faturamento' },
+    { name: 'Serviços', icon: faBagShopping, link: 'app/servicos' },
+  ]
+
   constructor(private router: Router, private userService: UserService, private clienteService: ClienteService, private funcionariosService: FuncionariosService) {
     this.role = this.userService.retornaUserRole();
   }

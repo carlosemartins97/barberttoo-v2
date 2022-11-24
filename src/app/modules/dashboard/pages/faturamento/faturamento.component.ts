@@ -33,6 +33,7 @@ export class FaturamentoComponent implements OnInit {
     this.loading = true;
     this.historicoService.getHistoricoMesAtual().then(res => {
       console.log(res)
+      console.log('=============')
       this.historicoMesAtual = res;
       this.agendamentosInMonth = res.length;
       this.lucroMesAtual = this.getLucro(res);
