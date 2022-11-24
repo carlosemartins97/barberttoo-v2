@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { environment } from 'src/environments/environment';
-import { HistoricoFuncionario, HistoricoModel } from '../models/historico.model';
+import { HistoricoADM, HistoricoFuncionario, HistoricoModel } from '../models/historico.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +33,9 @@ export class HistoricoService {
   getHistoricoByDate(day: number = 0, month: number = 0, year: number = new Date().getFullYear()) {
     const id = this.userService.retornaUserId();
     return this.http.get<HistoricoModel[]>(`${environment.baseUrl}/historico/funcionario/data/${day}/${month}/${year}/id=${id}`).toPromise();
+  }
+
+  getHistoricoTotal() {
+    return this.http.get<HistoricoADM[]>(`${environment.baseUrl}/historico`).toPromise();
   }
 }

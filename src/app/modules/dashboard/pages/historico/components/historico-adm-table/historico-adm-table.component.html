@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Cliente</th>
+      <th scope="col">Atendente</th>
+      <th scope="col" sortable="area">Data do atendimento</th>
+      <th scope="col" sortable="population">Serviço realizado</th>
+      <th scope="col" sortable="name">Contato</th>
+      <th scope="col" sortable="population">Valor cobrado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let agendamento of agendamentos">
+      <td scope="row">{{agendamento.cliente.nm_Cliente}}</td>
+      <td scope="row">{{agendamento.funcionario.nm_Funcionario}}</td>
+      <td>
+        {{agendamento.dt_Realizado | date: "dd/MM/YY 'às' HH:mm" }}
+      </td>
+      <td>{{agendamento.servico.nm_servico}}</td>
+      <td>{{agendamento.cliente.ds_Email}}</td>
+      <td>R$ {{agendamento.vl_Pago.toFixed(2)}}</td>
+    </tr>
+  </tbody>
+</table>

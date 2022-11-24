@@ -19,3 +19,18 @@ export interface HistoricoFuncionario {
   };
   vl_Pago: number;
 }
+
+export interface HistoricoADM {
+  cliente: {
+    nm_Cliente: string;
+    ds_Email: string;
+  };
+  funcionario: {
+    nm_Funcionario: string;
+  };
+  dt_Realizado: string;
+  servico: {
+    nm_servico: string;
+  };
+  vl_Pago: number;
+}

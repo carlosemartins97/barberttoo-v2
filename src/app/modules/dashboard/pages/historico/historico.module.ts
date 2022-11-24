@@ -5,6 +5,7 @@ import { HistoricoRoutingModule } from './historico-routing.module';
 import { HistoricoFuncionarioTableComponent } from './components/historico-funcionario-table/historico-funcionario-table.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HistoricoClienteTableComponent } from './components/historico-cliente-table/historico-cliente-table.component';
+import { HistoricoAdmTableComponent } from './components/historico-adm-table/historico-adm-table.component';
 
 
 
@@ -12,7 +13,8 @@ import { HistoricoClienteTableComponent } from './components/historico-cliente-t
   declarations: [
     HistoricoComponent,
     HistoricoFuncionarioTableComponent,
-    HistoricoClienteTableComponent
+    HistoricoClienteTableComponent,
+    HistoricoAdmTableComponent
   ],
   imports: [
     CommonModule,

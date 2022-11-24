@@ -14,22 +14,28 @@ import { ServicoMaisRealizado } from './models/faturamento.model';
 export class FaturamentoComponent implements OnInit {
 
   loading: boolean = false;
-  agendamentosInMonth: number;
-  servicoMaisRealizado: string;
+  agendamentosInMonth: number = 0;
+  servicoMaisRealizado: string = 'Nenhum serviço realizado até o momento.';
   historicoMesAtual: any[] = [];
   historicoMesPassado: any[] = [];
-  lucroMesPassado: number;
-  lucroMesAtual: number;
-  lucroDiaAnterior: number;
-  lucroDiaAtual: number;
+  lucroMesPassado: number = 0;
+  lucroMesAtual: number = 0;
+  lucroDiaAnterior: number = 0;
+  lucroDiaAtual: number = 0;
+  saldoTotal: number = 0;
+  atendimentosTotal: number = 0;
 
-  constructor(private historicoService: HistoricoService, private servicosService: ServicosService) { }
+  isADM: boolean;
+
+  constructor(private historicoService: HistoricoService, private servicosService: ServicosService, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.isADM = this.userService.retornaUserRole() === 'ROLE_ADM';
+
     this.getHistoricoMesAtual();
   }
 
-  async getHistoricoMesAtual() {
+  getHistoricoMesAtual() {
     this.loading = true;
     this.historicoService.getHistoricoMesAtual().then(res => {
       console.log(res)
@@ -58,13 +64,17 @@ export class FaturamentoComponent implements OnInit {
       servico.qnt! > maior && (maior = servico.qnt) && (idMaior = servico.id);
     })
 
-    this.servicosService.getServiceById(idMaior).then(res => {
-      this.servicoMaisRealizado = res.nm_servico;
+    if (idMaior) {
+      this.servicosService.getServiceById(idMaior).then(res => {
+        this.servicoMaisRealizado = res.nm_servico;
+        this.getHistoricoMesPassado();
+      }).catch(error => {
+        console.log(error);
+        this.loading = false;
+      })
+    } else {
       this.getHistoricoMesPassado();
-    }).catch(error => {
-      console.log(error);
-      this.loading = false;
-    })
+    }
   }
 
   getHistoricoMesPassado() {
@@ -97,7 +107,19 @@ export class FaturamentoComponent implements OnInit {
     this.lucroDiaAnterior = somaDiaAnterior;
     this.lucroDiaAtual = somaDiaAtual;
 
-    this.loading = false;
+    this.isADM ? this.getHistoricoTotal() : this.loading = false;
+  }
+
+  getHistoricoTotal() {
+    this.historicoService.getHistoricoTotal().then(res => {
+      this.saldoTotal = this.getLucro(res);
+      this.atendimentosTotal = res.length;
+      this.loading = false;
+    }).catch(error => {
+      console.log(error);
+      alert('Houve um erro ao completar a requisição do ADM.');
+      this.loading = false;
+    })
   }
 
 

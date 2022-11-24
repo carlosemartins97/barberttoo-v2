@@ -3,7 +3,7 @@
     <div>
       <h1>Histórico de atendimentos</h1>
 
-      <p>Visualize abaixo todos os atendimentos concluídos de acordo com o filtro selecionado</p>
+      <p>Visualize abaixo todos os atendimentos concluídos relacionados ao seu perfil.</p>
 
       <!-- <form [formGroup]="form" (ngSubmit)="onFilter()" class="form">
 
@@ -14,8 +14,10 @@
   <div class="historico__body" *ngIf="!loading">
     <app-historico-cliente-table [agendamentos]="agendamentosCliente" *ngIf="isCliente"></app-historico-cliente-table>
 
-    <app-historico-funcionario-table [agendamentos]="agendamentosFunc" *ngIf="!isCliente">
+    <app-historico-funcionario-table [agendamentos]="agendamentosFunc" *ngIf="isFunc">
     </app-historico-funcionario-table>
+
+    <app-historico-adm-table [agendamentos]="agendamentosADM" *ngIf="isADM"></app-historico-adm-table>
 
   </div>
   <div class="loading" *ngIf="loading">

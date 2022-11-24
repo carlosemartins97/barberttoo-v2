@@ -3,7 +3,7 @@
     <div>
       <h1>Faturamento</h1>
 
-      <p>Informações sobre ganhos e lucros referente às datas especificadas abaixo.</p>
+      <p>Informações sobre ganhos e lucros.</p>
     </div>
   </div>
 
@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="grid__chart">
-        <p class="grid__chart__title">Comparação o mês atual e mês passado.</p>
+        <p class="grid__chart__title">Comparação entre o mês atual e mês passado.</p>
         <div class="grid__chart__card">
           <div class="grid__chart__values">
             <p class="grid__chart__values--previous">
@@ -53,12 +53,20 @@
         </div>
       </div>
       <div class="grid__chart">
-        <p class="grid__chart__title">Total de atendimentos nesse mês:</p>
+        <p class="grid__chart__title">Total de atendimentos realizados por você este mês:</p>
         <p class="money money--big">{{agendamentosInMonth}}</p>
       </div>
       <div class="grid__chart">
-        <p class="grid__chart__title">Maior serviço prestado:</p>
+        <p class="grid__chart__title">Maior serviço prestado este mês:</p>
         <p class="money money--big">{{servicoMaisRealizado}}</p>
+      </div>
+      <div class="grid__chart" *ngIf="isADM">
+        <p class="grid__chart__title">Número total de atendimentos realizados neste mês:</p>
+        <p class="money money--big">{{atendimentosTotal}}</p>
+      </div>
+      <div class="grid__chart" *ngIf="isADM">
+        <p class="grid__chart__title">Saldo total deste mês:</p>
+        <p class="money money--big">R$ {{saldoTotal}}</p>
       </div>
     </div>
   </div>
