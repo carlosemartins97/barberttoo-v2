@@ -24,6 +24,12 @@
         bottom: 0;
       }
     }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
 
     button {
       background: $color-amarelo;
@@ -36,9 +42,17 @@
         color: $color-branco;
       }
 
+      &.delete {
+        background: $color-red;
+      }
+
       &:hover {
         filter: brightness(0.9);
       }
+    }
+
+    @include mq(md) {
+      flex-direction: row;
     }
   }
 

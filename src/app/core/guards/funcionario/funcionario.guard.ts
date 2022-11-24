@@ -14,7 +14,7 @@ export class FuncionarioGuard implements CanLoad {
     route: Route,
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    if (this.usuarioService.retornaUserRole() !== 'ROLE_ADM' && this.usuarioService.retornaUserRole() !== 'ROLE_ATENDENTE') {
+    if (this.usuarioService.retornaUserRole() !== 'ROLE_ADM' && this.usuarioService.retornaUserRole() !== 'ROLE_ATEND') {
       this.router.navigate(['app/agendamento']);
       return false;
     }

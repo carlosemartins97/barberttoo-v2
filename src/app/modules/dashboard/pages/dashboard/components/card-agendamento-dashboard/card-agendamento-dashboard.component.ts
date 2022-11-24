@@ -18,12 +18,14 @@ export class CardAgendamentoDashboardComponent implements OnInit {
 
   @Input() agendamento: Agendamento;
   @Output() deleteClicked = new EventEmitter();
-  @ViewChild(AlertModalComponent) modal: AlertModalComponent;
+  @ViewChild('modalDelete') modalDelete: AlertModalComponent;
+  @ViewChild('modalHistoric') modalHistoric: AlertModalComponent;
 
   submitted: boolean = false;
   loading: boolean = false;
   dataAgendamento: string;
   faCheck = faCheck;
+  faTrash = faTrash;
 
   form = new FormGroup({
     ds_Pagamento: new FormControl('', [Validators.required]),
@@ -38,15 +40,19 @@ export class CardAgendamentoDashboardComponent implements OnInit {
     this.form.get('price')?.setValue(this.agendamento.servico.vl_preco);
   }
 
-  openAlertModal() {
-    this.modal.open();
+  openHistoricModal() {
+    this.modalHistoric.open();
+  }
+
+  openDeleteModal() {
+    this.modalDelete.open();
   }
 
   getForm() {
     return this.form.controls
   }
 
-  onDelete() {
+  onDeleteAndCreateHistoric() {
     this.submitted = true;
     if (this.form.valid) {
       this.modalService.dismissAll();
@@ -64,19 +70,24 @@ export class CardAgendamentoDashboardComponent implements OnInit {
       }
 
       this.historicoService.createHistoric(historico).then(response => {
-        this.agendamentoService.deleteAgendamento(this.agendamento.id).then(res => {
-          this.deleteClicked.emit('refresh');
-          this.loading = false;
-        }).catch(error => {
-          console.log(error);
-          this.loading = false;
-        })
+        this.onDelete();
       }).catch(err => {
         alert('Erro ao concluir agendamento.')
         console.log(err)
         this.loading = false;
       })
     }
+  }
+
+  onDelete() {
+    this.modalService.dismissAll();
+    this.agendamentoService.deleteAgendamento(this.agendamento.id).then(res => {
+      this.deleteClicked.emit('refresh');
+      this.loading = false;
+    }).catch(error => {
+      console.log(error);
+      this.loading = false;
+    })
   }
 
 
