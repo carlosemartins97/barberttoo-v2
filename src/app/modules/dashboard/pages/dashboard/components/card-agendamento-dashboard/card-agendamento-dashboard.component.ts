@@ -4,7 +4,7 @@ import { faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Agendamento } from 'src/app/core/models/agendamento.model';
 import { AlertModalComponent } from 'src/app/shared/alert-modal/alert-modal.component';
-import { formatDateForAgendamentos } from 'src/app/shared/utils/functions/date';
+import { formatDateForAgendamentos, formatDateForInput, formateHourForAgendamentos } from 'src/app/shared/utils/functions/date';
 import { AgendamentoService } from '../../../agendamento/services/agendamento.service';
 import { HistoricoModel } from '../../../historico/models/historico.model';
 import { HistoricoService } from '../../../historico/services/historico.service';
@@ -60,8 +60,9 @@ export class CardAgendamentoDashboardComponent implements OnInit {
       const index = this.agendamento.dt_Agendamento.indexOf('T');
       const agendamentoFormatted = `${this.agendamento.dt_Agendamento.substring(0, index)} ${this.agendamento.dt_Agendamento.substring(index + 1)}`;
 
+
       const historico: HistoricoModel = {
-        dt_Realizado: agendamentoFormatted,
+        dt_Realizado: `${formatDateForInput(true, new Date())} ${formateHourForAgendamentos(new Date().toISOString())}:00`,
         vl_Pago: this.form.get('newPrice')?.value ? this.form.get('price')?.value : this.agendamento.servico.vl_preco,
         ds_Pagamento: this.form.get('ds_Pagamento')?.value,
         cliente: this.agendamento.cliente.id,
