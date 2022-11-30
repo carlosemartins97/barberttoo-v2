@@ -1,0 +1,37 @@
+<app-card-skeleton title="Agendamento Manual" class="agendamento-manual">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+
+    <div class="label-float">
+      <input type="tel" placeholder=" " name="cpf" id="cpf" formControlName="cpf" mask="000.000.000-00" />
+      <label for="price">CPF do cliente:</label>
+
+      <div class="error-msg">
+        <span *ngIf="(getForm().cpf.touched && getForm().cpf.errors) || (getForm().cpf.errors && submitted)">Insira
+          um CPF válido.</span>
+      </div>
+    </div>
+
+    <button class="submit" type="submit">
+      Buscar
+    </button>
+
+    <!-- <div class="label-float">
+      <select type="text" placeholder=" " name="pagamento" id="pagamento" formControlName="">
+        <option value="CREDITO">Crédito</option>
+        <option value="DEBITO">Débito</option>
+        <option value="DINHEIRO">Dinheiro</option>
+        <option value="CHEQUE">Cheque</option>
+        <option value="BOLETO">Boleto</option>
+        <option value="VOUCHER">Voucher</option>
+        <option value="PIX">Pix</option>
+      </select>
+      <label>Forma de pagamento:</label>
+
+      <div class="error-msg">
+        <span *ngIf="(getForm().touched && getForm().errors) || (getForm().errors && submitted)">Escolha
+          a forma de pagamento</span>
+      </div>
+    </div> -->
+
+  </form>
+</app-card-skeleton>

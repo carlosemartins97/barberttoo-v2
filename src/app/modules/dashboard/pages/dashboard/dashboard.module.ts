@@ -8,13 +8,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxMaskModule } from 'ngx-mask';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { CardAgendamentoDashboardComponent } from './components/card-agendamento-dashboard/card-agendamento-dashboard.component';
+import { AgendamentoManualComponent } from './components/agendamento-manual/agendamento-manual.component';
 
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    CardAgendamentoDashboardComponent
+    CardAgendamentoDashboardComponent,
+    AgendamentoManualComponent
   ],
   imports: [
     CommonModule,

@@ -26,4 +26,8 @@ export class ClienteService {
     return this.http.get<any>(apiCep).toPromise();
 
   }
+
+  getClienteByCPF(cpf: string) {
+    return this.http.post<Cliente>(`${environment.baseUrl}/cliente/busca/cpf/email`, cpf).toPromise();
+  }
 }
