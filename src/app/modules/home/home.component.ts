@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
         error: error => {
           console.log(error);
           this.loading = false;
+          alert('Não foi possível realizar essa requisição. Tente novamente mais tarde!')
         }
       })
     }

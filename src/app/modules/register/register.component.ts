@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   submitted: boolean = false;
 
   registerForm = new FormGroup({
-    name: new FormControl('', [Validators.required, CustomValidator.validateFullName]),
+    name: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(2)]),
     cpf: new FormControl('', [CustomValidator.ValidaCpf]),
     phone: new FormControl('', [Validators.required, Validators.minLength(11), CustomValidator.validatePhone]),
     date: new FormControl('', [Validators.required]),
@@ -63,6 +63,7 @@ export class RegisterComponent implements OnInit {
         error: error => {
           this.loading = false;
           console.log(error)
+          alert('Não foi possível realizar seu cadastro. Tente novamente mais tarde!')
         }
       })
     }
