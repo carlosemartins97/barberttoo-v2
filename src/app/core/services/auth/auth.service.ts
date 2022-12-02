@@ -3,13 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Auth, RegisterInterface } from 'src/app/shared/utils/models/Auth';
 import { UserService } from '../user/user.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  apiURL = 'https://sistema-barbertoo.herokuapp.com';
 
   constructor(
     private http: HttpClient,
@@ -21,7 +20,7 @@ export class AuthService {
       login: payload.email,
       password: payload.password
     }
-    return this.http.post<Auth>(`${this.apiURL}/login`, newPayload).pipe(
+    return this.http.post<Auth>(`${environment.baseUrl}/login`, newPayload).pipe(
       tap((res) => {
         const authToken = res.token;
         const id = res.id;
@@ -49,7 +48,7 @@ export class AuthService {
       cd_Password: payload.password,
     }
 
-    return this.http.post<any>(`${this.apiURL}/cliente/create`, newPayload);
+    return this.http.post<any>(`${environment.baseUrl}/cliente/create`, newPayload);
   }
 
 }
