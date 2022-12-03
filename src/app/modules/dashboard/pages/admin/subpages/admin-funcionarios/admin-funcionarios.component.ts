@@ -27,7 +27,7 @@ export class AdminFuncionariosComponent implements OnInit {
   faPlus = faPlus;
 
   funcForm: FormGroup = new FormGroup({
-    nm_Funcionario: new FormControl('', [Validators.required, CustomValidator.validateFullName]),
+    nm_Funcionario: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(2)]),
     cd_Cpf: new FormControl('', [CustomValidator.ValidaCpf]),
     cd_Celular: new FormControl('', [Validators.required, Validators.minLength(11), CustomValidator.validatePhone]),
     dt_BirthDate: new FormControl('', [Validators.required]),
