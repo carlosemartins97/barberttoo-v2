@@ -38,6 +38,15 @@ export class AlertModalComponent implements OnInit {
     this.actionClicked.emit('clicked');
   }
 
+  setModalClass(modalClass: string) {
+    this.modalConfig.modalDialogClass = `alert-modal ${modalClass}`;
+  }
+
+  close() {
+    this.modalConfig.modalDialogClass = `alert-modal`;
+    this.modalService.dismissAll();
+  }
+
   ngOnDestroy() {
     this.modalConfig.modalDialogClass = `alert-modal`;
   }

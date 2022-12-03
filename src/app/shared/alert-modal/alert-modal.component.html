@@ -1,13 +1,13 @@
 <ng-template #content let-modal>
   <div class="modal-header" *ngIf="title">
     <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
   </div>
   <div class="modal-body">
     <ng-content></ng-content>
   </div>
   <div class="modal-footer">
-    <button type="button" class="fechar botao" (click)="modal.close('Save click')">Fechar</button>
+    <button type="button" class="fechar botao" (click)="close()">Fechar</button>
     <button type="button" class="{{color}} botao" (click)="action()">{{actionText}}</button>
   </div>
 </ng-template>

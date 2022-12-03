@@ -61,6 +61,7 @@ export class AdminFuncionariosComponent implements OnInit {
   }
 
   openAlertModal() {
+    this.modal.setModalClass('modal-create');
     this.modal.open();
   }
 
